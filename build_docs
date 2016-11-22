@@ -1,0 +1,95 @@
+#!/usr/bin/python3
+#
+# build_docs - Generate Anaconda documentation.
+#
+# Copyright (C) 2016  Red Hat, Inc.
+#
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU Lesser General Public License as published
+# by the Free Software Foundation; either version 2.1 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU Lesser General Public License for more details.
+#
+# You should have received a copy of the GNU Lesser General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+import os
+import subprocess
+import argparse
+import shutil
+
+ANACONDA_DIR = "anaconda"
+ANACONDA_REPO = "https://github.com/rhinstaller/anaconda"
+ANACONDA_BRANCH = "master"
+
+DOCS_DIR = "docs"
+
+def init_repo(repo_folder, repo_url, branch_name):
+    os.makedirs(repo_folder)
+    command = "git clone --depth 1 --branch %s %s %s" % (branch_name, repo_url, repo_folder)
+    subprocess.call(command, shell=True)
+
+def update_repo(repo_folder):
+    subprocess.call("git pull", shell=True, cwd=repo_folder)
+
+def update_anaconda():
+    print("Updating the Anaconda source code repository.")
+    # make sure the Anaconda repo clone exists
+    if not os.path.exists(ANACONDA_DIR):
+        print("Initial Anaconda source code repository initialization.")
+        init_repo(ANACONDA_DIR, ANACONDA_REPO, ANACONDA_BRANCH)
+    # update the Anaconda repo
+    update_repo(ANACONDA_DIR)
+
+def clean_anaconda():
+    print("Cleaning the Anaconda source code repository.")
+    subprocess.call("git reset --hard HEAD", shell=True, cwd=ANACONDA_DIR)
+
+def build_docs():
+    print("Configuring Anaconda")
+    # All glory to autotools!
+    subprocess.call("./autogen.sh", shell=True, cwd=ANACONDA_DIR)
+    subprocess.call("./configure", shell=True, cwd=ANACONDA_DIR)
+    print("Generating the Anaconda documentation.")
+    subprocess.call("make html", shell=True, cwd=ANACONDA_DIR)
+
+def commit_docs_update():
+    print("Creating a documentation update commit.")
+    subprocess.call("git add -u %s" % DOCS_DIR, shell=True)
+
+    commit_message = "Update the Anaconda documentation"
+    subprocess.call('git commit -m "%s"' % commit_message, shell=True)
+
+def push_docs_update():
+    print("Pushing a documentation update to origin.")
+    subprocess.call('git push origin master', shell=True)
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description="Generate Anaconda documentation.")
+    parser.add_argument("--commit", action="store_true", default=False,
+                        help="Commit all current changes in the generated docs repository.")
+    parser.add_argument("--push", action="store_true", default=False,
+                        help="Push changes in the generated docs back to origin.")
+    args = parser.parse_args()
+
+    # make sure the Anaconda source code is up-to-date
+    update_anaconda()
+
+    # build the docs
+    build_docs()
+
+    # update the contents of the docs folder
+    print("Updating the documentation folder.")
+    if os.path.exists(DOCS_DIR):
+        shutil.rmtree(DOCS_DIR)
+    shutil.copytree(os.path.join(ANACONDA_DIR, DOCS_DIR), DOCS_DIR)
+
+    if args.commit:
+        commit_docs_update()
+
+    if args.push:
+        push_docs_update()
