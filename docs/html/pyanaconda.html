@@ -1,0 +1,2297 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>pyanaconda package &mdash; Anaconda 26.1 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="Anaconda 26.1 documentation" href="index.html"/>
+        <link rel="up" title="pyanaconda" href="modules.html"/>
+        <link rel="next" title="pyanaconda.installclasses package" href="pyanaconda.installclasses.html"/>
+        <link rel="prev" title="pyanaconda" href="modules.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Anaconda
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                26.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction to Anaconda</a></li>
+<li class="toctree-l1"><a class="reference internal" href="release.html">Building a Release</a></li>
+<li class="toctree-l1"><a class="reference internal" href="boot-options.html">Anaconda Boot Options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kickstart.html">Anaconda Kickstart Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="commit-log.html">Rules for commit messages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="driverdisc.html">Brief description of DriverDisc version 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="iscsi.html">iSCSI and Anaconda</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multipath.html">Multipath and Anaconda</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">pyanaconda</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">pyanaconda package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#subpackages">Subpackages</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pyanaconda.installclasses.html">pyanaconda.installclasses package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyanaconda.isys.html">pyanaconda.isys package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyanaconda.packaging.html">pyanaconda.packaging package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyanaconda.ui.html">pyanaconda.ui package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pyanaconda-addons-module">pyanaconda.addons module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pyanaconda-anaconda-module">pyanaconda.anaconda module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-pyanaconda.anaconda_argparse">pyanaconda.anaconda_argparse module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-pyanaconda.anaconda_log">pyanaconda.anaconda_log module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pyanaconda-bootloader-module">pyanaconda.bootloader module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-pyanaconda.constants">pyanaconda.constants module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-pyanaconda.constants_text">pyanaconda.constants_text module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pyanaconda-desktop-module">pyanaconda.desktop module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pyanaconda-display-module">pyanaconda.display module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-pyanaconda.errors">pyanaconda.errors module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pyanaconda-exception-module">pyanaconda.exception module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-pyanaconda.flags">pyanaconda.flags module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pyanaconda-geoloc-module">pyanaconda.geoloc module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-pyanaconda.i18n">pyanaconda.i18n module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pyanaconda-ihelp-module">pyanaconda.ihelp module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pyanaconda-image-module">pyanaconda.image module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pyanaconda-install-module">pyanaconda.install module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pyanaconda-installclass-module">pyanaconda.installclass module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pyanaconda-iutil-module">pyanaconda.iutil module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pyanaconda-kexec-module">pyanaconda.kexec module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pyanaconda-keyboard-module">pyanaconda.keyboard module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pyanaconda-kickstart-module">pyanaconda.kickstart module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pyanaconda-localization-module">pyanaconda.localization module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pyanaconda-network-module">pyanaconda.network module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-pyanaconda.nm">pyanaconda.nm module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pyanaconda-ntp-module">pyanaconda.ntp module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-pyanaconda.product">pyanaconda.product module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pyanaconda-progress-module">pyanaconda.progress module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-pyanaconda.pwpolicy">pyanaconda.pwpolicy module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pyanaconda-queuefactory-module">pyanaconda.queuefactory module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-pyanaconda.regexes">pyanaconda.regexes module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pyanaconda-rescue-module">pyanaconda.rescue module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-pyanaconda.safe_dbus">pyanaconda.safe_dbus module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pyanaconda-screen-access-module">pyanaconda.screen_access module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-pyanaconda.screensaver">pyanaconda.screensaver module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pyanaconda-simpleconfig-module">pyanaconda.simpleconfig module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pyanaconda-startup-utils-module">pyanaconda.startup_utils module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pyanaconda-storage-utils-module">pyanaconda.storage_utils module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-pyanaconda.threads">pyanaconda.threads module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pyanaconda-timezone-module">pyanaconda.timezone module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pyanaconda-users-module">pyanaconda.users module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-pyanaconda.version">pyanaconda.version module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pyanaconda-vnc-module">pyanaconda.vnc module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-pyanaconda">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="testing.html">Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tests/modules.html">tests</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">Anaconda</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="modules.html">pyanaconda</a> &raquo;</li>
+      
+    <li>pyanaconda package</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/pyanaconda.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="pyanaconda-package">
+<h1>pyanaconda package<a class="headerlink" href="#pyanaconda-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="pyanaconda.installclasses.html">pyanaconda.installclasses package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pyanaconda.installclasses.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyanaconda.installclasses.html#pyanaconda-installclasses-centos-module">pyanaconda.installclasses.centos module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyanaconda.installclasses.html#pyanaconda-installclasses-fedora-module">pyanaconda.installclasses.fedora module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyanaconda.installclasses.html#pyanaconda-installclasses-rhel-module">pyanaconda.installclasses.rhel module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyanaconda.installclasses.html#pyanaconda-installclasses-scientific-module">pyanaconda.installclasses.scientific module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyanaconda.installclasses.html#module-pyanaconda.installclasses">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pyanaconda.isys.html">pyanaconda.isys package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pyanaconda.isys.html#module-contents">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pyanaconda.packaging.html">pyanaconda.packaging package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pyanaconda.packaging.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyanaconda.packaging.html#pyanaconda-packaging-dnfpayload-module">pyanaconda.packaging.dnfpayload module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyanaconda.packaging.html#pyanaconda-packaging-livepayload-module">pyanaconda.packaging.livepayload module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyanaconda.packaging.html#pyanaconda-packaging-rpmostreepayload-module">pyanaconda.packaging.rpmostreepayload module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyanaconda.packaging.html#pyanaconda-packaging-tarpayload-module">pyanaconda.packaging.tarpayload module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyanaconda.packaging.html#module-contents">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pyanaconda.ui.html">pyanaconda.ui package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pyanaconda.ui.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyanaconda.ui.categories.html">pyanaconda.ui.categories package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pyanaconda.ui.categories.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyanaconda.ui.categories.html#pyanaconda-ui-categories-customization-module">pyanaconda.ui.categories.customization module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyanaconda.ui.categories.html#pyanaconda-ui-categories-localization-module">pyanaconda.ui.categories.localization module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyanaconda.ui.categories.html#pyanaconda-ui-categories-software-module">pyanaconda.ui.categories.software module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyanaconda.ui.categories.html#pyanaconda-ui-categories-system-module">pyanaconda.ui.categories.system module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyanaconda.ui.categories.html#pyanaconda-ui-categories-user-settings-module">pyanaconda.ui.categories.user_settings module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyanaconda.ui.categories.html#module-contents">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pyanaconda.ui.gui.html">pyanaconda.ui.gui package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pyanaconda.ui.gui.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="pyanaconda.ui.gui.hubs.html">pyanaconda.ui.gui.hubs package</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="pyanaconda.ui.gui.hubs.html#submodules">Submodules</a></li>
+<li class="toctree-l6"><a class="reference internal" href="pyanaconda.ui.gui.hubs.html#pyanaconda-ui-gui-hubs-progress-module">pyanaconda.ui.gui.hubs.progress module</a></li>
+<li class="toctree-l6"><a class="reference internal" href="pyanaconda.ui.gui.hubs.html#pyanaconda-ui-gui-hubs-summary-module">pyanaconda.ui.gui.hubs.summary module</a></li>
+<li class="toctree-l6"><a class="reference internal" href="pyanaconda.ui.gui.hubs.html#module-contents">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l5"><a class="reference internal" href="pyanaconda.ui.gui.spokes.html">pyanaconda.ui.gui.spokes package</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="pyanaconda.ui.gui.spokes.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l7"><a class="reference internal" href="pyanaconda.ui.gui.spokes.advstorage.html">pyanaconda.ui.gui.spokes.advstorage package</a><ul>
+<li class="toctree-l8"><a class="reference internal" href="pyanaconda.ui.gui.spokes.advstorage.html#submodules">Submodules</a></li>
+<li class="toctree-l8"><a class="reference internal" href="pyanaconda.ui.gui.spokes.advstorage.html#pyanaconda-ui-gui-spokes-advstorage-dasd-module">pyanaconda.ui.gui.spokes.advstorage.dasd module</a></li>
+<li class="toctree-l8"><a class="reference internal" href="pyanaconda.ui.gui.spokes.advstorage.html#pyanaconda-ui-gui-spokes-advstorage-fcoe-module">pyanaconda.ui.gui.spokes.advstorage.fcoe module</a></li>
+<li class="toctree-l8"><a class="reference internal" href="pyanaconda.ui.gui.spokes.advstorage.html#pyanaconda-ui-gui-spokes-advstorage-iscsi-module">pyanaconda.ui.gui.spokes.advstorage.iscsi module</a></li>
+<li class="toctree-l8"><a class="reference internal" href="pyanaconda.ui.gui.spokes.advstorage.html#pyanaconda-ui-gui-spokes-advstorage-zfcp-module">pyanaconda.ui.gui.spokes.advstorage.zfcp module</a></li>
+<li class="toctree-l8"><a class="reference internal" href="pyanaconda.ui.gui.spokes.advstorage.html#module-contents">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l7"><a class="reference internal" href="pyanaconda.ui.gui.spokes.lib.html">pyanaconda.ui.gui.spokes.lib package</a><ul>
+<li class="toctree-l8"><a class="reference internal" href="pyanaconda.ui.gui.spokes.lib.html#submodules">Submodules</a></li>
+<li class="toctree-l8"><a class="reference internal" href="pyanaconda.ui.gui.spokes.lib.html#pyanaconda-ui-gui-spokes-lib-accordion-module">pyanaconda.ui.gui.spokes.lib.accordion module</a></li>
+<li class="toctree-l8"><a class="reference internal" href="pyanaconda.ui.gui.spokes.lib.html#pyanaconda-ui-gui-spokes-lib-cart-module">pyanaconda.ui.gui.spokes.lib.cart module</a></li>
+<li class="toctree-l8"><a class="reference internal" href="pyanaconda.ui.gui.spokes.lib.html#pyanaconda-ui-gui-spokes-lib-custom-storage-helpers-module">pyanaconda.ui.gui.spokes.lib.custom_storage_helpers module</a></li>
+<li class="toctree-l8"><a class="reference internal" href="pyanaconda.ui.gui.spokes.lib.html#pyanaconda-ui-gui-spokes-lib-dasdfmt-module">pyanaconda.ui.gui.spokes.lib.dasdfmt module</a></li>
+<li class="toctree-l8"><a class="reference internal" href="pyanaconda.ui.gui.spokes.lib.html#pyanaconda-ui-gui-spokes-lib-detailederror-module">pyanaconda.ui.gui.spokes.lib.detailederror module</a></li>
+<li class="toctree-l8"><a class="reference internal" href="pyanaconda.ui.gui.spokes.lib.html#pyanaconda-ui-gui-spokes-lib-entropy-dialog-module">pyanaconda.ui.gui.spokes.lib.entropy_dialog module</a></li>
+<li class="toctree-l8"><a class="reference internal" href="pyanaconda.ui.gui.spokes.lib.html#pyanaconda-ui-gui-spokes-lib-lang-locale-handler-module">pyanaconda.ui.gui.spokes.lib.lang_locale_handler module</a></li>
+<li class="toctree-l8"><a class="reference internal" href="pyanaconda.ui.gui.spokes.lib.html#pyanaconda-ui-gui-spokes-lib-passphrase-module">pyanaconda.ui.gui.spokes.lib.passphrase module</a></li>
+<li class="toctree-l8"><a class="reference internal" href="pyanaconda.ui.gui.spokes.lib.html#pyanaconda-ui-gui-spokes-lib-refresh-module">pyanaconda.ui.gui.spokes.lib.refresh module</a></li>
+<li class="toctree-l8"><a class="reference internal" href="pyanaconda.ui.gui.spokes.lib.html#pyanaconda-ui-gui-spokes-lib-resize-module">pyanaconda.ui.gui.spokes.lib.resize module</a></li>
+<li class="toctree-l8"><a class="reference internal" href="pyanaconda.ui.gui.spokes.lib.html#pyanaconda-ui-gui-spokes-lib-summary-module">pyanaconda.ui.gui.spokes.lib.summary module</a></li>
+<li class="toctree-l8"><a class="reference internal" href="pyanaconda.ui.gui.spokes.lib.html#module-contents">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l6"><a class="reference internal" href="pyanaconda.ui.gui.spokes.html#submodules">Submodules</a></li>
+<li class="toctree-l6"><a class="reference internal" href="pyanaconda.ui.gui.spokes.html#pyanaconda-ui-gui-spokes-custom-module">pyanaconda.ui.gui.spokes.custom module</a></li>
+<li class="toctree-l6"><a class="reference internal" href="pyanaconda.ui.gui.spokes.html#pyanaconda-ui-gui-spokes-datetime-spoke-module">pyanaconda.ui.gui.spokes.datetime_spoke module</a></li>
+<li class="toctree-l6"><a class="reference internal" href="pyanaconda.ui.gui.spokes.html#pyanaconda-ui-gui-spokes-filter-module">pyanaconda.ui.gui.spokes.filter module</a></li>
+<li class="toctree-l6"><a class="reference internal" href="pyanaconda.ui.gui.spokes.html#pyanaconda-ui-gui-spokes-keyboard-module">pyanaconda.ui.gui.spokes.keyboard module</a></li>
+<li class="toctree-l6"><a class="reference internal" href="pyanaconda.ui.gui.spokes.html#pyanaconda-ui-gui-spokes-langsupport-module">pyanaconda.ui.gui.spokes.langsupport module</a></li>
+<li class="toctree-l6"><a class="reference internal" href="pyanaconda.ui.gui.spokes.html#pyanaconda-ui-gui-spokes-network-module">pyanaconda.ui.gui.spokes.network module</a></li>
+<li class="toctree-l6"><a class="reference internal" href="pyanaconda.ui.gui.spokes.html#pyanaconda-ui-gui-spokes-password-module">pyanaconda.ui.gui.spokes.password module</a></li>
+<li class="toctree-l6"><a class="reference internal" href="pyanaconda.ui.gui.spokes.html#pyanaconda-ui-gui-spokes-software-module">pyanaconda.ui.gui.spokes.software module</a></li>
+<li class="toctree-l6"><a class="reference internal" href="pyanaconda.ui.gui.spokes.html#pyanaconda-ui-gui-spokes-source-module">pyanaconda.ui.gui.spokes.source module</a></li>
+<li class="toctree-l6"><a class="reference internal" href="pyanaconda.ui.gui.spokes.html#pyanaconda-ui-gui-spokes-storage-module">pyanaconda.ui.gui.spokes.storage module</a></li>
+<li class="toctree-l6"><a class="reference internal" href="pyanaconda.ui.gui.spokes.html#pyanaconda-ui-gui-spokes-user-module">pyanaconda.ui.gui.spokes.user module</a></li>
+<li class="toctree-l6"><a class="reference internal" href="pyanaconda.ui.gui.spokes.html#pyanaconda-ui-gui-spokes-welcome-module">pyanaconda.ui.gui.spokes.welcome module</a></li>
+<li class="toctree-l6"><a class="reference internal" href="pyanaconda.ui.gui.spokes.html#module-contents">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="pyanaconda.ui.gui.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyanaconda.ui.gui.html#pyanaconda-ui-gui-helpers-module">pyanaconda.ui.gui.helpers module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyanaconda.ui.gui.html#pyanaconda-ui-gui-utils-module">pyanaconda.ui.gui.utils module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyanaconda.ui.gui.html#pyanaconda-ui-gui-xkl-wrapper-module">pyanaconda.ui.gui.xkl_wrapper module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyanaconda.ui.gui.html#module-contents">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pyanaconda.ui.lib.html">pyanaconda.ui.lib package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pyanaconda.ui.lib.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyanaconda.ui.lib.html#pyanaconda-ui-lib-disks-module">pyanaconda.ui.lib.disks module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyanaconda.ui.lib.html#pyanaconda-ui-lib-entropy-module">pyanaconda.ui.lib.entropy module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyanaconda.ui.lib.html#pyanaconda-ui-lib-space-module">pyanaconda.ui.lib.space module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyanaconda.ui.lib.html#module-contents">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pyanaconda.ui.tui.html">pyanaconda.ui.tui package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pyanaconda.ui.tui.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="pyanaconda.ui.tui.hubs.html">pyanaconda.ui.tui.hubs package</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="pyanaconda.ui.tui.hubs.html#submodules">Submodules</a></li>
+<li class="toctree-l6"><a class="reference internal" href="pyanaconda.ui.tui.hubs.html#pyanaconda-ui-tui-hubs-summary-module">pyanaconda.ui.tui.hubs.summary module</a></li>
+<li class="toctree-l6"><a class="reference internal" href="pyanaconda.ui.tui.hubs.html#module-contents">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l5"><a class="reference internal" href="pyanaconda.ui.tui.simpleline.html">pyanaconda.ui.tui.simpleline package</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="pyanaconda.ui.tui.simpleline.html#submodules">Submodules</a></li>
+<li class="toctree-l6"><a class="reference internal" href="pyanaconda.ui.tui.simpleline.html#pyanaconda-ui-tui-simpleline-base-module">pyanaconda.ui.tui.simpleline.base module</a></li>
+<li class="toctree-l6"><a class="reference internal" href="pyanaconda.ui.tui.simpleline.html#pyanaconda-ui-tui-simpleline-prompt-module">pyanaconda.ui.tui.simpleline.prompt module</a></li>
+<li class="toctree-l6"><a class="reference internal" href="pyanaconda.ui.tui.simpleline.html#pyanaconda-ui-tui-simpleline-widgets-module">pyanaconda.ui.tui.simpleline.widgets module</a></li>
+<li class="toctree-l6"><a class="reference internal" href="pyanaconda.ui.tui.simpleline.html#module-contents">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l5"><a class="reference internal" href="pyanaconda.ui.tui.spokes.html">pyanaconda.ui.tui.spokes package</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="pyanaconda.ui.tui.spokes.html#submodules">Submodules</a></li>
+<li class="toctree-l6"><a class="reference internal" href="pyanaconda.ui.tui.spokes.html#pyanaconda-ui-tui-spokes-askvnc-module">pyanaconda.ui.tui.spokes.askvnc module</a></li>
+<li class="toctree-l6"><a class="reference internal" href="pyanaconda.ui.tui.spokes.html#pyanaconda-ui-tui-spokes-langsupport-module">pyanaconda.ui.tui.spokes.langsupport module</a></li>
+<li class="toctree-l6"><a class="reference internal" href="pyanaconda.ui.tui.spokes.html#pyanaconda-ui-tui-spokes-network-module">pyanaconda.ui.tui.spokes.network module</a></li>
+<li class="toctree-l6"><a class="reference internal" href="pyanaconda.ui.tui.spokes.html#pyanaconda-ui-tui-spokes-password-module">pyanaconda.ui.tui.spokes.password module</a></li>
+<li class="toctree-l6"><a class="reference internal" href="pyanaconda.ui.tui.spokes.html#pyanaconda-ui-tui-spokes-progress-module">pyanaconda.ui.tui.spokes.progress module</a></li>
+<li class="toctree-l6"><a class="reference internal" href="pyanaconda.ui.tui.spokes.html#pyanaconda-ui-tui-spokes-shell-spoke-module">pyanaconda.ui.tui.spokes.shell_spoke module</a></li>
+<li class="toctree-l6"><a class="reference internal" href="pyanaconda.ui.tui.spokes.html#pyanaconda-ui-tui-spokes-software-module">pyanaconda.ui.tui.spokes.software module</a></li>
+<li class="toctree-l6"><a class="reference internal" href="pyanaconda.ui.tui.spokes.html#pyanaconda-ui-tui-spokes-source-module">pyanaconda.ui.tui.spokes.source module</a></li>
+<li class="toctree-l6"><a class="reference internal" href="pyanaconda.ui.tui.spokes.html#pyanaconda-ui-tui-spokes-storage-module">pyanaconda.ui.tui.spokes.storage module</a></li>
+<li class="toctree-l6"><a class="reference internal" href="pyanaconda.ui.tui.spokes.html#pyanaconda-ui-tui-spokes-time-spoke-module">pyanaconda.ui.tui.spokes.time_spoke module</a></li>
+<li class="toctree-l6"><a class="reference internal" href="pyanaconda.ui.tui.spokes.html#pyanaconda-ui-tui-spokes-user-module">pyanaconda.ui.tui.spokes.user module</a></li>
+<li class="toctree-l6"><a class="reference internal" href="pyanaconda.ui.tui.spokes.html#pyanaconda-ui-tui-spokes-warnings-spoke-module">pyanaconda.ui.tui.spokes.warnings_spoke module</a></li>
+<li class="toctree-l6"><a class="reference internal" href="pyanaconda.ui.tui.spokes.html#module-contents">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="pyanaconda.ui.tui.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyanaconda.ui.tui.html#pyanaconda-ui-tui-tuiobject-module">pyanaconda.ui.tui.tuiobject module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyanaconda.ui.tui.html#module-contents">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pyanaconda.ui.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyanaconda.ui.html#pyanaconda-ui-common-module">pyanaconda.ui.common module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyanaconda.ui.html#pyanaconda-ui-communication-module">pyanaconda.ui.communication module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyanaconda.ui.html#pyanaconda-ui-helpers-module">pyanaconda.ui.helpers module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyanaconda.ui.html#module-contents">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="pyanaconda-addons-module">
+<h2>pyanaconda.addons module<a class="headerlink" href="#pyanaconda-addons-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="pyanaconda-anaconda-module">
+<h2>pyanaconda.anaconda module<a class="headerlink" href="#pyanaconda-anaconda-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-pyanaconda.anaconda_argparse">
+<span id="pyanaconda-anaconda-argparse-module"></span><h2>pyanaconda.anaconda_argparse module<a class="headerlink" href="#module-pyanaconda.anaconda_argparse" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="pyanaconda.anaconda_argparse.AnacondaArgumentParser">
+<em class="property">class </em><code class="descclassname">pyanaconda.anaconda_argparse.</code><code class="descname">AnacondaArgumentParser</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#pyanaconda.anaconda_argparse.AnacondaArgumentParser" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/argparse.html#argparse.ArgumentParser" title="(in Python v3.5)"><code class="xref py py-class docutils literal"><span class="pre">argparse.ArgumentParser</span></code></a></p>
+<p>Subclass of ArgumentParser that also examines boot arguments.</p>
+<p>If the &#8220;bootarg_prefix&#8221; keyword argument is set, it&#8217;s assumed that all
+bootargs will start with that prefix.</p>
+<dl class="docutils">
+<dt>&#8220;require_prefix&#8221; is a bool:</dt>
+<dd>False: accept the argument with or without the prefix.
+True: ignore the argument without the prefix. (default)</dd>
+</dl>
+<dl class="method">
+<dt id="pyanaconda.anaconda_argparse.AnacondaArgumentParser.add_argument">
+<code class="descname">add_argument</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#pyanaconda.anaconda_argparse.AnacondaArgumentParser.add_argument" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a new option - like ArgumentParser.add_argument.</p>
+<p>The long options will be added to the list of boot args, unless
+the keyword argument &#8216;bootarg&#8217; is set to False.</p>
+<p>Positional arguments that don&#8217;t start with &#8216;-&#8216; are considered extra
+boot args to look for.</p>
+<p>NOTE: conflict_handler is currently ignored for boot args - they will
+always raise ArgumentError if they conflict.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyanaconda.anaconda_argparse.AnacondaArgumentParser.parse_args">
+<code class="descname">parse_args</code><span class="sig-paren">(</span><em>args=None</em>, <em>boot_cmdline=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pyanaconda.anaconda_argparse.AnacondaArgumentParser.parse_args" title="Permalink to this definition">¶</a></dt>
+<dd><p>Like ArgumentParser.parse_args(), but also parses the boot cmdline.
+(see parse_boot_cmdline for details on that process.)
+Program cmdline arguments will override boot cmdline arguments.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>args</strong> (<em>string or None</em>) &#8211; program command line arguments</li>
+<li><strong>boot_cmdline</strong> (<em>string, dict or None</em>) &#8211; the Anaconda boot command line arguments</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">an argparse Namespace instance</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">Namespace</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyanaconda.anaconda_argparse.AnacondaArgumentParser.parse_boot_cmdline">
+<code class="descname">parse_boot_cmdline</code><span class="sig-paren">(</span><em>boot_cmdline</em><span class="sig-paren">)</span><a class="headerlink" href="#pyanaconda.anaconda_argparse.AnacondaArgumentParser.parse_boot_cmdline" title="Permalink to this definition">¶</a></dt>
+<dd><p>Parse the boot cmdline and create an appropriate Namespace instance
+according to the option definitions set by add_argument.</p>
+<p>boot_cmdline can be given as a string (to be parsed by BootArgs), or a
+dict (or any object with .items()) of {bootarg:value} pairs.</p>
+<p>If boot_cmdline is None, the boot_cmdline data will be whatever BootArgs reads
+by default (/proc/cmdline, /run/initramfs/etc/cmdline, /etc/cmdline).</p>
+<p>If an option requires a value but the boot arg doesn&#8217;t provide one,
+we&#8217;ll quietly not set anything in the Namespace. We also skip any boot options
+that were not specified by add_argument as we don&#8217;t care about them
+(there will usually be quite a lot of them (rd.*, etc.).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>boot_cmdline</strong> (<em>string, dict or None</em>) &#8211; the Anaconda boot command line arguments</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">an argparse Namespace instance</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">Namespace</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pyanaconda.anaconda_argparse.HelpTextParser">
+<em class="property">class </em><code class="descclassname">pyanaconda.anaconda_argparse.</code><code class="descname">HelpTextParser</code><span class="sig-paren">(</span><em>path</em><span class="sig-paren">)</span><a class="headerlink" href="#pyanaconda.anaconda_argparse.HelpTextParser" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.5)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
+<p>Class to parse help text from file and make it available to option
+parser.</p>
+<p>Initializer
+:param path: The absolute path to the help text file</p>
+<dl class="method">
+<dt id="pyanaconda.anaconda_argparse.HelpTextParser.help_text">
+<code class="descname">help_text</code><span class="sig-paren">(</span><em>option</em><span class="sig-paren">)</span><a class="headerlink" href="#pyanaconda.anaconda_argparse.HelpTextParser.help_text" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the help text corresponding to the given command-line option.
+If no help text is available, returns the empty string.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>option</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.5)"><em>str</em></a>) &#8211; The name of the option</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.5)">str</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyanaconda.anaconda_argparse.HelpTextParser.read">
+<code class="descname">read</code><span class="sig-paren">(</span><em>lines</em><span class="sig-paren">)</span><a class="headerlink" href="#pyanaconda.anaconda_argparse.HelpTextParser.read" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads option, help text pairs from a text file.</p>
+<p>Each pair is separated from the next by an empty line.
+The option comes first, followed by any number of lines of help text.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>lines</strong> &#8211; a sequence of lines of text</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="pyanaconda.anaconda_argparse.getArgumentParser">
+<code class="descclassname">pyanaconda.anaconda_argparse.</code><code class="descname">getArgumentParser</code><span class="sig-paren">(</span><em>version_string</em>, <em>boot_cmdline=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pyanaconda.anaconda_argparse.getArgumentParser" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the anaconda argument parser.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>version_string</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.5)"><em>str</em></a>) &#8211; The version string, e.g. 23.19.5.</li>
+<li><strong>pyanaconda.flags.BootArgs</strong> &#8211; The boot command line options</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="#pyanaconda.anaconda_argparse.AnacondaArgumentParser" title="pyanaconda.anaconda_argparse.AnacondaArgumentParser">AnacondaArgumentParser</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyanaconda.anaconda_argparse.get_help_width">
+<code class="descclassname">pyanaconda.anaconda_argparse.</code><code class="descname">get_help_width</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyanaconda.anaconda_argparse.get_help_width" title="Permalink to this definition">¶</a></dt>
+<dd><p>Try to detect the terminal window width size and use it to
+compute optimal help text width. If it can&#8217;t be detected
+a default values is returned.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">optimal help text width in number of characters</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.5)">int</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyanaconda.anaconda_argparse.name_path_pairs">
+<code class="descclassname">pyanaconda.anaconda_argparse.</code><code class="descname">name_path_pairs</code><span class="sig-paren">(</span><em>image_specs</em><span class="sig-paren">)</span><a class="headerlink" href="#pyanaconda.anaconda_argparse.name_path_pairs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Processes and verifies image file specifications. Generates pairs
+of names and paths.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>image_specs</strong> (<em>list of str</em>) &#8211; a list of image specifications</td>
+</tr>
+</tbody>
+</table>
+<p>Each image spec in image_specs has format &lt;path&gt;[:&lt;name&gt;] where
+&lt;path&gt; is the path to a local file and &lt;name&gt; is an optional
+name used to identify the disk in UI. &lt;name&gt; may not contain colons
+or slashes.</p>
+<p>If no name given in specification, synthesizes name from basename
+of path. Since two distinct paths may have the same basename, handles
+name collisions by synthesizing a different name for the colliding
+name.</p>
+<dl class="docutils">
+<dt>Raises an exception if:</dt>
+<dd><ul class="first last simple">
+<li>A path is empty</li>
+<li>A path specifies a non-existant file</li>
+<li>A path specifies a directory</li>
+<li>Duplicate paths are specified</li>
+<li>A name contains a &#8220;/&#8221;</li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-pyanaconda.anaconda_log">
+<span id="pyanaconda-anaconda-log-module"></span><h2>pyanaconda.anaconda_log module<a class="headerlink" href="#module-pyanaconda.anaconda_log" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="pyanaconda.anaconda_log.AnacondaFileHandler">
+<em class="property">class </em><code class="descclassname">pyanaconda.anaconda_log.</code><code class="descname">AnacondaFileHandler</code><span class="sig-paren">(</span><em>filename</em>, <em>mode='a'</em>, <em>encoding=None</em>, <em>delay=False</em><span class="sig-paren">)</span><a class="headerlink" href="#pyanaconda.anaconda_log.AnacondaFileHandler" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyanaconda.anaconda_log._AnacondaLogFixer</span></code>, <a class="reference external" href="https://docs.python.org/3/library/logging.handlers.html#logging.FileHandler" title="(in Python v3.5)"><code class="xref py py-class docutils literal"><span class="pre">logging.FileHandler</span></code></a></p>
+<p>Open the specified file and use it as the stream for logging.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyanaconda.anaconda_log.AnacondaLog">
+<em class="property">class </em><code class="descclassname">pyanaconda.anaconda_log.</code><code class="descname">AnacondaLog</code><a class="headerlink" href="#pyanaconda.anaconda_log.AnacondaLog" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.5)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
+<dl class="attribute">
+<dt id="pyanaconda.anaconda_log.AnacondaLog.SYSLOG_CFGFILE">
+<code class="descname">SYSLOG_CFGFILE</code><em class="property"> = '/etc/rsyslog.conf'</em><a class="headerlink" href="#pyanaconda.anaconda_log.AnacondaLog.SYSLOG_CFGFILE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pyanaconda.anaconda_log.AnacondaLog.VIRTIO_PORT">
+<code class="descname">VIRTIO_PORT</code><em class="property"> = '/dev/virtio-ports/org.fedoraproject.anaconda.log.0'</em><a class="headerlink" href="#pyanaconda.anaconda_log.AnacondaLog.VIRTIO_PORT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pyanaconda.anaconda_log.AnacondaLog.addFileHandler">
+<code class="descname">addFileHandler</code><span class="sig-paren">(</span><em>dest</em>, <em>addToLogger</em>, <em>minLevel=20</em>, <em>fmtStr='%(asctime)s</em>, <em>%(msecs)03d %(levelname)s %(name)s: %(message)s'</em>, <em>autoLevel=False</em><span class="sig-paren">)</span><a class="headerlink" href="#pyanaconda.anaconda_log.AnacondaLog.addFileHandler" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pyanaconda.anaconda_log.AnacondaLog.forwardToSyslog">
+<code class="descname">forwardToSyslog</code><span class="sig-paren">(</span><em>logr</em><span class="sig-paren">)</span><a class="headerlink" href="#pyanaconda.anaconda_log.AnacondaLog.forwardToSyslog" title="Permalink to this definition">¶</a></dt>
+<dd><p>Forward everything that goes in the logger to the syslog daemon.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyanaconda.anaconda_log.AnacondaLog.restartSyslog">
+<code class="descname">restartSyslog</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyanaconda.anaconda_log.AnacondaLog.restartSyslog" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pyanaconda.anaconda_log.AnacondaLog.setupVirtio">
+<code class="descname">setupVirtio</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyanaconda.anaconda_log.AnacondaLog.setupVirtio" title="Permalink to this definition">¶</a></dt>
+<dd><p>Setup virtio rsyslog logging.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyanaconda.anaconda_log.AnacondaLog.setup_remotelog">
+<code class="descname">setup_remotelog</code><span class="sig-paren">(</span><em>host</em>, <em>port</em><span class="sig-paren">)</span><a class="headerlink" href="#pyanaconda.anaconda_log.AnacondaLog.setup_remotelog" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pyanaconda.anaconda_log.AnacondaLog.showwarning">
+<code class="descname">showwarning</code><span class="sig-paren">(</span><em>message</em>, <em>category</em>, <em>filename</em>, <em>lineno</em>, <em>file=&lt;_io.TextIOWrapper name='&lt;stderr&gt;' mode='w' encoding='UTF-8'&gt;</em>, <em>line=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pyanaconda.anaconda_log.AnacondaLog.showwarning" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make sure messages sent through python&#8217;s warnings module get logged.</p>
+<p>The warnings mechanism is used by some libraries we use,
+notably pykickstart.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyanaconda.anaconda_log.AnacondaLog.updateRemote">
+<code class="descname">updateRemote</code><span class="sig-paren">(</span><em>remote_syslog</em><span class="sig-paren">)</span><a class="headerlink" href="#pyanaconda.anaconda_log.AnacondaLog.updateRemote" title="Permalink to this definition">¶</a></dt>
+<dd><p>Updates the location of remote rsyslogd to forward to.</p>
+<p>Requires updating rsyslogd config and restarting rsyslog</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pyanaconda.anaconda_log.AnacondaSocketHandler">
+<em class="property">class </em><code class="descclassname">pyanaconda.anaconda_log.</code><code class="descname">AnacondaSocketHandler</code><span class="sig-paren">(</span><em>host</em>, <em>port</em><span class="sig-paren">)</span><a class="headerlink" href="#pyanaconda.anaconda_log.AnacondaSocketHandler" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyanaconda.anaconda_log._AnacondaLogFixer</span></code>, <a class="reference external" href="https://docs.python.org/3/library/logging.handlers.html#logging.handlers.SocketHandler" title="(in Python v3.5)"><code class="xref py py-class docutils literal"><span class="pre">logging.handlers.SocketHandler</span></code></a></p>
+<p>Initializes the handler with a specific host address and port.</p>
+<p>When the attribute <em>closeOnError</em> is set to True - if a socket error
+occurs, the socket is silently closed and then reopened on the next
+logging call.</p>
+<dl class="method">
+<dt id="pyanaconda.anaconda_log.AnacondaSocketHandler.makePickle">
+<code class="descname">makePickle</code><span class="sig-paren">(</span><em>record</em><span class="sig-paren">)</span><a class="headerlink" href="#pyanaconda.anaconda_log.AnacondaSocketHandler.makePickle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pyanaconda.anaconda_log.AnacondaStreamHandler">
+<em class="property">class </em><code class="descclassname">pyanaconda.anaconda_log.</code><code class="descname">AnacondaStreamHandler</code><span class="sig-paren">(</span><em>stream=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pyanaconda.anaconda_log.AnacondaStreamHandler" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyanaconda.anaconda_log._AnacondaLogFixer</span></code>, <a class="reference external" href="https://docs.python.org/3/library/logging.handlers.html#logging.StreamHandler" title="(in Python v3.5)"><code class="xref py py-class docutils literal"><span class="pre">logging.StreamHandler</span></code></a></p>
+<p>Initialize the handler.</p>
+<p>If stream is not specified, sys.stderr is used.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="pyanaconda.anaconda_log.AnacondaSyslogHandler">
+<em class="property">class </em><code class="descclassname">pyanaconda.anaconda_log.</code><code class="descname">AnacondaSyslogHandler</code><span class="sig-paren">(</span><em>address=('localhost'</em>, <em>514)</em>, <em>facility=1</em>, <em>tag=''</em><span class="sig-paren">)</span><a class="headerlink" href="#pyanaconda.anaconda_log.AnacondaSyslogHandler" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pyanaconda.anaconda_log._AnacondaLogFixer</span></code>, <a class="reference external" href="https://docs.python.org/3/library/logging.handlers.html#logging.handlers.SysLogHandler" title="(in Python v3.5)"><code class="xref py py-class docutils literal"><span class="pre">logging.handlers.SysLogHandler</span></code></a></p>
+<dl class="method">
+<dt id="pyanaconda.anaconda_log.AnacondaSyslogHandler.emit">
+<code class="descname">emit</code><span class="sig-paren">(</span><em>record</em><span class="sig-paren">)</span><a class="headerlink" href="#pyanaconda.anaconda_log.AnacondaSyslogHandler.emit" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pyanaconda.anaconda_log.AnacondaSyslogHandler.levelMap">
+<code class="descname">levelMap</code><em class="property"> = {'CRIT': 'critical', 'ERR': 'error'}</em><a class="headerlink" href="#pyanaconda.anaconda_log.AnacondaSyslogHandler.levelMap" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pyanaconda.anaconda_log.AnacondaSyslogHandler.mapPriority">
+<code class="descname">mapPriority</code><span class="sig-paren">(</span><em>level</em><span class="sig-paren">)</span><a class="headerlink" href="#pyanaconda.anaconda_log.AnacondaSyslogHandler.mapPriority" title="Permalink to this definition">¶</a></dt>
+<dd><p>Map the priority level to a syslog level</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="pyanaconda.anaconda_log.autoSetLevel">
+<code class="descclassname">pyanaconda.anaconda_log.</code><code class="descname">autoSetLevel</code><span class="sig-paren">(</span><em>handler</em>, <em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#pyanaconda.anaconda_log.autoSetLevel" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="pyanaconda.anaconda_log.init">
+<code class="descclassname">pyanaconda.anaconda_log.</code><code class="descname">init</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyanaconda.anaconda_log.init" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="pyanaconda.anaconda_log.setHandlersLevel">
+<code class="descclassname">pyanaconda.anaconda_log.</code><code class="descname">setHandlersLevel</code><span class="sig-paren">(</span><em>logr</em>, <em>level</em><span class="sig-paren">)</span><a class="headerlink" href="#pyanaconda.anaconda_log.setHandlersLevel" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="pyanaconda-bootloader-module">
+<h2>pyanaconda.bootloader module<a class="headerlink" href="#pyanaconda-bootloader-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-pyanaconda.constants">
+<span id="pyanaconda-constants-module"></span><h2>pyanaconda.constants module<a class="headerlink" href="#module-pyanaconda.constants" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="pyanaconda.constants.DisplayModes">
+<em class="property">class </em><code class="descclassname">pyanaconda.constants.</code><code class="descname">DisplayModes</code><a class="headerlink" href="#pyanaconda.constants.DisplayModes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/enum.html#enum.Enum" title="(in Python v3.5)"><code class="xref py py-class docutils literal"><span class="pre">enum.Enum</span></code></a></p>
+<p>An enumeration.</p>
+<dl class="attribute">
+<dt id="pyanaconda.constants.DisplayModes.GUI">
+<code class="descname">GUI</code><em class="property"> = &lt;DisplayModes.GUI: 'GUI'&gt;</em><a class="headerlink" href="#pyanaconda.constants.DisplayModes.GUI" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pyanaconda.constants.DisplayModes.TUI">
+<code class="descname">TUI</code><em class="property"> = &lt;DisplayModes.TUI: 'TUI'&gt;</em><a class="headerlink" href="#pyanaconda.constants.DisplayModes.TUI" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-pyanaconda.constants_text">
+<span id="pyanaconda-constants-text-module"></span><h2>pyanaconda.constants_text module<a class="headerlink" href="#module-pyanaconda.constants_text" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="pyanaconda-desktop-module">
+<h2>pyanaconda.desktop module<a class="headerlink" href="#pyanaconda-desktop-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="pyanaconda-display-module">
+<h2>pyanaconda.display module<a class="headerlink" href="#pyanaconda-display-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-pyanaconda.errors">
+<span id="pyanaconda-errors-module"></span><h2>pyanaconda.errors module<a class="headerlink" href="#module-pyanaconda.errors" title="Permalink to this headline">¶</a></h2>
+<dl class="exception">
+<dt id="pyanaconda.errors.InvalidImageSizeError">
+<em class="property">exception </em><code class="descclassname">pyanaconda.errors.</code><code class="descname">InvalidImageSizeError</code><span class="sig-paren">(</span><em>message</em>, <em>filename</em><span class="sig-paren">)</span><a class="headerlink" href="#pyanaconda.errors.InvalidImageSizeError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/exceptions.html#Exception" title="(in Python v3.5)"><code class="xref py py-class docutils literal"><span class="pre">Exception</span></code></a></p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="pyanaconda.errors.MissingImageError">
+<em class="property">exception </em><code class="descclassname">pyanaconda.errors.</code><code class="descname">MissingImageError</code><a class="headerlink" href="#pyanaconda.errors.MissingImageError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/exceptions.html#Exception" title="(in Python v3.5)"><code class="xref py py-class docutils literal"><span class="pre">Exception</span></code></a></p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="pyanaconda.errors.MediaUnmountError">
+<em class="property">exception </em><code class="descclassname">pyanaconda.errors.</code><code class="descname">MediaUnmountError</code><span class="sig-paren">(</span><em>device</em><span class="sig-paren">)</span><a class="headerlink" href="#pyanaconda.errors.MediaUnmountError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/exceptions.html#Exception" title="(in Python v3.5)"><code class="xref py py-class docutils literal"><span class="pre">Exception</span></code></a></p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="pyanaconda.errors.MediaMountError">
+<em class="property">exception </em><code class="descclassname">pyanaconda.errors.</code><code class="descname">MediaMountError</code><span class="sig-paren">(</span><em>device</em><span class="sig-paren">)</span><a class="headerlink" href="#pyanaconda.errors.MediaMountError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/exceptions.html#Exception" title="(in Python v3.5)"><code class="xref py py-class docutils literal"><span class="pre">Exception</span></code></a></p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="pyanaconda.errors.ScriptError">
+<em class="property">exception </em><code class="descclassname">pyanaconda.errors.</code><code class="descname">ScriptError</code><span class="sig-paren">(</span><em>lineno</em>, <em>details</em><span class="sig-paren">)</span><a class="headerlink" href="#pyanaconda.errors.ScriptError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/exceptions.html#Exception" title="(in Python v3.5)"><code class="xref py py-class docutils literal"><span class="pre">Exception</span></code></a></p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="pyanaconda.errors.CmdlineError">
+<em class="property">exception </em><code class="descclassname">pyanaconda.errors.</code><code class="descname">CmdlineError</code><a class="headerlink" href="#pyanaconda.errors.CmdlineError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#pyanaconda.errors.NonInteractiveError" title="pyanaconda.errors.NonInteractiveError"><code class="xref py py-class docutils literal"><span class="pre">pyanaconda.errors.NonInteractiveError</span></code></a></p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="pyanaconda.errors.NonInteractiveError">
+<em class="property">exception </em><code class="descclassname">pyanaconda.errors.</code><code class="descname">NonInteractiveError</code><a class="headerlink" href="#pyanaconda.errors.NonInteractiveError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/exceptions.html#Exception" title="(in Python v3.5)"><code class="xref py py-class docutils literal"><span class="pre">Exception</span></code></a></p>
+</dd></dl>
+
+</div>
+<div class="section" id="pyanaconda-exception-module">
+<h2>pyanaconda.exception module<a class="headerlink" href="#pyanaconda-exception-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-pyanaconda.flags">
+<span id="pyanaconda-flags-module"></span><h2>pyanaconda.flags module<a class="headerlink" href="#module-pyanaconda.flags" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="pyanaconda.flags.BootArgs">
+<em class="property">class </em><code class="descclassname">pyanaconda.flags.</code><code class="descname">BootArgs</code><span class="sig-paren">(</span><em>cmdline=None</em>, <em>files=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pyanaconda.flags.BootArgs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/collections.html#collections.OrderedDict" title="(in Python v3.5)"><code class="xref py py-class docutils literal"><span class="pre">collections.OrderedDict</span></code></a></p>
+<p>Hold boot arguments as an OrderedDict.</p>
+<p>Create a BootArgs object.
+Reads each of the &#8220;files&#8221;, then parses &#8220;cmdline&#8221; if it was provided.</p>
+<dl class="method">
+<dt id="pyanaconda.flags.BootArgs.getbool">
+<code class="descname">getbool</code><span class="sig-paren">(</span><em>arg</em>, <em>default=False</em><span class="sig-paren">)</span><a class="headerlink" href="#pyanaconda.flags.BootArgs.getbool" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value of the given arg, as a boolean. The rules are:
+- &#8220;arg&#8221;, &#8220;arg=val&#8221;: True
+- &#8220;noarg&#8221;, &#8220;noarg=val&#8221;, &#8220;arg=[0|off|no]&#8221;: False</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyanaconda.flags.BootArgs.read">
+<code class="descname">read</code><span class="sig-paren">(</span><em>filenames</em><span class="sig-paren">)</span><a class="headerlink" href="#pyanaconda.flags.BootArgs.read" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read and parse a filename (or a list of filenames).
+Files that can&#8217;t be read are silently ignored.
+Returns a list of successfully read files.
+filenames can contain *, ?, and character ranges expressed with []</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyanaconda.flags.BootArgs.readstr">
+<code class="descname">readstr</code><span class="sig-paren">(</span><em>cmdline</em><span class="sig-paren">)</span><a class="headerlink" href="#pyanaconda.flags.BootArgs.readstr" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pyanaconda.flags.Flags">
+<em class="property">class </em><code class="descclassname">pyanaconda.flags.</code><code class="descname">Flags</code><span class="sig-paren">(</span><em>read_cmdline=True</em><span class="sig-paren">)</span><a class="headerlink" href="#pyanaconda.flags.Flags" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.5)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
+<dl class="method">
+<dt id="pyanaconda.flags.Flags.get">
+<code class="descname">get</code><span class="sig-paren">(</span><em>attr</em>, <em>val=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pyanaconda.flags.Flags.get" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pyanaconda.flags.Flags.read_cmdline">
+<code class="descname">read_cmdline</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyanaconda.flags.Flags.read_cmdline" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pyanaconda.flags.Flags.set_cmdline_bool">
+<code class="descname">set_cmdline_bool</code><span class="sig-paren">(</span><em>flag</em><span class="sig-paren">)</span><a class="headerlink" href="#pyanaconda.flags.Flags.set_cmdline_bool" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="pyanaconda.flags.can_touch_runtime_system">
+<code class="descclassname">pyanaconda.flags.</code><code class="descname">can_touch_runtime_system</code><span class="sig-paren">(</span><em>msg</em>, <em>touch_live=False</em><span class="sig-paren">)</span><a class="headerlink" href="#pyanaconda.flags.can_touch_runtime_system" title="Permalink to this definition">¶</a></dt>
+<dd><p>Guard that should be used before doing actions that modify runtime system.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>msg</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.5)"><em>str</em></a>) &#8211; message to be logged in case that runtime system cannot be touched</li>
+<li><strong>touch_live</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.5)"><em>bool</em></a>) &#8211; whether to allow touching liveCD installation system</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.5)">bool</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="pyanaconda-geoloc-module">
+<h2>pyanaconda.geoloc module<a class="headerlink" href="#pyanaconda-geoloc-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-pyanaconda.i18n">
+<span id="pyanaconda-i18n-module"></span><h2>pyanaconda.i18n module<a class="headerlink" href="#module-pyanaconda.i18n" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="pyanaconda.i18n.N_">
+<code class="descclassname">pyanaconda.i18n.</code><code class="descname">N_</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="headerlink" href="#pyanaconda.i18n.N_" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="pyanaconda.i18n.P_">
+<code class="descclassname">pyanaconda.i18n.</code><code class="descname">P_</code><span class="sig-paren">(</span><em>x</em>, <em>y</em>, <em>z</em><span class="sig-paren">)</span><a class="headerlink" href="#pyanaconda.i18n.P_" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="pyanaconda.i18n.C_">
+<code class="descclassname">pyanaconda.i18n.</code><code class="descname">C_</code><span class="sig-paren">(</span><em>msgctxt</em>, <em>msgid</em><span class="sig-paren">)</span><a class="headerlink" href="#pyanaconda.i18n.C_" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="pyanaconda.i18n.CN_">
+<code class="descclassname">pyanaconda.i18n.</code><code class="descname">CN_</code><span class="sig-paren">(</span><em>c</em>, <em>x</em><span class="sig-paren">)</span><a class="headerlink" href="#pyanaconda.i18n.CN_" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="pyanaconda.i18n.CP_">
+<code class="descclassname">pyanaconda.i18n.</code><code class="descname">CP_</code><span class="sig-paren">(</span><em>msgctxt</em>, <em>msgid</em>, <em>msgid_plural</em>, <em>n</em><span class="sig-paren">)</span><a class="headerlink" href="#pyanaconda.i18n.CP_" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="pyanaconda-ihelp-module">
+<h2>pyanaconda.ihelp module<a class="headerlink" href="#pyanaconda-ihelp-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="pyanaconda-image-module">
+<h2>pyanaconda.image module<a class="headerlink" href="#pyanaconda-image-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="pyanaconda-install-module">
+<h2>pyanaconda.install module<a class="headerlink" href="#pyanaconda-install-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="pyanaconda-installclass-module">
+<h2>pyanaconda.installclass module<a class="headerlink" href="#pyanaconda-installclass-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="pyanaconda-iutil-module">
+<h2>pyanaconda.iutil module<a class="headerlink" href="#pyanaconda-iutil-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="pyanaconda-kexec-module">
+<h2>pyanaconda.kexec module<a class="headerlink" href="#pyanaconda-kexec-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="pyanaconda-keyboard-module">
+<h2>pyanaconda.keyboard module<a class="headerlink" href="#pyanaconda-keyboard-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="pyanaconda-kickstart-module">
+<h2>pyanaconda.kickstart module<a class="headerlink" href="#pyanaconda-kickstart-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="pyanaconda-localization-module">
+<h2>pyanaconda.localization module<a class="headerlink" href="#pyanaconda-localization-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="pyanaconda-network-module">
+<h2>pyanaconda.network module<a class="headerlink" href="#pyanaconda-network-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-pyanaconda.nm">
+<span id="pyanaconda-nm-module"></span><h2>pyanaconda.nm module<a class="headerlink" href="#module-pyanaconda.nm" title="Permalink to this headline">¶</a></h2>
+<dl class="exception">
+<dt id="pyanaconda.nm.AddConnectionError">
+<em class="property">exception </em><code class="descclassname">pyanaconda.nm.</code><code class="descname">AddConnectionError</code><a class="headerlink" href="#pyanaconda.nm.AddConnectionError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/exceptions.html#Exception" title="(in Python v3.5)"><code class="xref py py-class docutils literal"><span class="pre">Exception</span></code></a></p>
+<p>Connection is not available for the device</p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="pyanaconda.nm.BondOptionsError">
+<em class="property">exception </em><code class="descclassname">pyanaconda.nm.</code><code class="descname">BondOptionsError</code><a class="headerlink" href="#pyanaconda.nm.BondOptionsError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#pyanaconda.nm.AddConnectionError" title="pyanaconda.nm.AddConnectionError"><code class="xref py py-class docutils literal"><span class="pre">pyanaconda.nm.AddConnectionError</span></code></a></p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="pyanaconda.nm.DeviceNotActiveError">
+<em class="property">exception </em><code class="descclassname">pyanaconda.nm.</code><code class="descname">DeviceNotActiveError</code><a class="headerlink" href="#pyanaconda.nm.DeviceNotActiveError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/exceptions.html#Exception" title="(in Python v3.5)"><code class="xref py py-class docutils literal"><span class="pre">Exception</span></code></a></p>
+<p>Device of specified name is not active</p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="pyanaconda.nm.PropertyNotFoundError">
+<em class="property">exception </em><code class="descclassname">pyanaconda.nm.</code><code class="descname">PropertyNotFoundError</code><a class="headerlink" href="#pyanaconda.nm.PropertyNotFoundError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.5)"><code class="xref py py-class docutils literal"><span class="pre">ValueError</span></code></a></p>
+<p>Property of NM object was not found</p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="pyanaconda.nm.SettingsNotFoundError">
+<em class="property">exception </em><code class="descclassname">pyanaconda.nm.</code><code class="descname">SettingsNotFoundError</code><a class="headerlink" href="#pyanaconda.nm.SettingsNotFoundError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.5)"><code class="xref py py-class docutils literal"><span class="pre">ValueError</span></code></a></p>
+<p>Settings NMRemoteConnection object was not found</p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="pyanaconda.nm.UnknownConnectionError">
+<em class="property">exception </em><code class="descclassname">pyanaconda.nm.</code><code class="descname">UnknownConnectionError</code><a class="headerlink" href="#pyanaconda.nm.UnknownConnectionError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/exceptions.html#Exception" title="(in Python v3.5)"><code class="xref py py-class docutils literal"><span class="pre">Exception</span></code></a></p>
+<p>Connection is not available for the device</p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="pyanaconda.nm.UnknownDeviceError">
+<em class="property">exception </em><code class="descclassname">pyanaconda.nm.</code><code class="descname">UnknownDeviceError</code><a class="headerlink" href="#pyanaconda.nm.UnknownDeviceError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.5)"><code class="xref py py-class docutils literal"><span class="pre">ValueError</span></code></a></p>
+<p>Device of specified name was not found by NM</p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="pyanaconda.nm.UnknownMethodGetError">
+<em class="property">exception </em><code class="descclassname">pyanaconda.nm.</code><code class="descname">UnknownMethodGetError</code><a class="headerlink" href="#pyanaconda.nm.UnknownMethodGetError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/exceptions.html#Exception" title="(in Python v3.5)"><code class="xref py py-class docutils literal"><span class="pre">Exception</span></code></a></p>
+<p>Object does not have Get, most probably being invalid</p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="pyanaconda.nm.UnmanagedDeviceError">
+<em class="property">exception </em><code class="descclassname">pyanaconda.nm.</code><code class="descname">UnmanagedDeviceError</code><a class="headerlink" href="#pyanaconda.nm.UnmanagedDeviceError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/exceptions.html#Exception" title="(in Python v3.5)"><code class="xref py py-class docutils literal"><span class="pre">Exception</span></code></a></p>
+<p>Device of specified name is not managed by NM or unavailable</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyanaconda.nm.nm_activate_device_connection">
+<code class="descclassname">pyanaconda.nm.</code><code class="descname">nm_activate_device_connection</code><span class="sig-paren">(</span><em>dev_name</em>, <em>con_uuid</em><span class="sig-paren">)</span><a class="headerlink" href="#pyanaconda.nm.nm_activate_device_connection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Activate device with specified connection.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>dev_name</strong> (<em>str or None</em>) &#8211; name of device or None for virtual devices</li>
+<li><strong>con_uuid</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.5)"><em>str</em></a>) &#8211; uuid of connection to be activated on device</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><ul class="first last simple">
+<li><strong>UnknownDeviceError</strong> &#8211; if device is not found</li>
+<li><strong>UnmanagedDeviceError</strong> &#8211; if device is not managed by NM
+or unavailable</li>
+<li><strong>SettingsNotFoundError</strong> &#8211; if conneciton with given uuid was not found</li>
+<li><strong>UnknownConnectionError</strong> &#8211; if connection is not available for the device</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyanaconda.nm.nm_activated_devices">
+<code class="descclassname">pyanaconda.nm.</code><code class="descname">nm_activated_devices</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyanaconda.nm.nm_activated_devices" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return names of activated network devices.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">names of activated network devices</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">list of strings</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyanaconda.nm.nm_add_connection">
+<code class="descclassname">pyanaconda.nm.</code><code class="descname">nm_add_connection</code><span class="sig-paren">(</span><em>values</em><span class="sig-paren">)</span><a class="headerlink" href="#pyanaconda.nm.nm_add_connection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add new connection specified by values.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>values</strong> &#8211; <div class="line-block">
+<div class="line">list of settings with new values and its types</div>
+<div class="line">[[key1, key2, value, type_str], ...]</div>
+<div class="line">key1: first-level key of setting (eg &#8220;connection&#8221;)</div>
+<div class="line">key2: second-level key of setting (eg &#8220;uuid&#8221;)</div>
+<div class="line">value: new value</div>
+<div class="line">type_str: dbus type of new value (eg &#8220;ay&#8221;)</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyanaconda.nm.nm_dbus_ay_to_ipv6">
+<code class="descclassname">pyanaconda.nm.</code><code class="descname">nm_dbus_ay_to_ipv6</code><span class="sig-paren">(</span><em>bytelist</em><span class="sig-paren">)</span><a class="headerlink" href="#pyanaconda.nm.nm_dbus_ay_to_ipv6" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert ipv6 address from list of bytes (dbus &#8216;ay&#8217;) to string.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>address</strong> (<em>list of bytes - dbus 'ay'</em>) &#8211; IPv6 address as list of bytes returned by dbus (&#8216;ay&#8217;)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">IPv6 address</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.5)">str</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyanaconda.nm.nm_dbus_int_to_ipv4">
+<code class="descclassname">pyanaconda.nm.</code><code class="descname">nm_dbus_int_to_ipv4</code><span class="sig-paren">(</span><em>address</em><span class="sig-paren">)</span><a class="headerlink" href="#pyanaconda.nm.nm_dbus_int_to_ipv4" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert ipv4 address from dus int &#8216;u&#8217; (switched endianess) to string.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>address</strong> (<em>integer - dbus 'u'</em>) &#8211; IPv4 address as integer returned by dbus (&#8216;u&#8217;)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">IPv6 address</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.5)">str</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyanaconda.nm.nm_device_active_con_uuid">
+<code class="descclassname">pyanaconda.nm.</code><code class="descname">nm_device_active_con_uuid</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#pyanaconda.nm.nm_device_active_con_uuid" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return uuid of device&#8217;s active connection</p>
+<p>Exceptions:
+UnknownDeviceError if device is not found</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyanaconda.nm.nm_device_active_ssid">
+<code class="descclassname">pyanaconda.nm.</code><code class="descname">nm_device_active_ssid</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#pyanaconda.nm.nm_device_active_ssid" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return ssid of device&#8217;s active access point.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.5)"><em>str</em></a>) &#8211; name of device</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">ssid of active access point, <code class="docutils literal"><span class="pre">None</span></code> if device has no active AP</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.5)">str</a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><strong>UnknownDeviceError</strong> &#8211; if device is not found</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyanaconda.nm.nm_device_carrier">
+<code class="descclassname">pyanaconda.nm.</code><code class="descname">nm_device_carrier</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#pyanaconda.nm.nm_device_carrier" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return whether physical carrier of device is found.
+(&#8216;Carrier&#8217; property)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.5)"><em>str</em></a>) &#8211; name of device</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">True if physical carrier is found, False otherwise</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.5)">bool</a></p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><ul class="first last simple">
+<li><strong>UnknownDeviceError</strong> &#8211; if device is not found</li>
+<li><strong>PropertyNotFoundError</strong> &#8211; if &#8216;Carrier&#8217; property is not found</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyanaconda.nm.nm_device_hwaddress">
+<code class="descclassname">pyanaconda.nm.</code><code class="descname">nm_device_hwaddress</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#pyanaconda.nm.nm_device_hwaddress" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return active hardware address of device (&#8216;HwAddress&#8217; property)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.5)"><em>str</em></a>) &#8211; name of device</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">active hardware address of device (&#8216;HwAddress&#8217; property)</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.5)">str</a></p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><ul class="first last simple">
+<li><strong>UnknownDeviceError</strong> &#8211; if device is not found</li>
+<li><strong>PropertyNotFoundError</strong> &#8211; if &#8216;HwAddress&#8217; property is not found</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyanaconda.nm.nm_device_ip_addresses">
+<code class="descclassname">pyanaconda.nm.</code><code class="descname">nm_device_ip_addresses</code><span class="sig-paren">(</span><em>name</em>, <em>version=4</em><span class="sig-paren">)</span><a class="headerlink" href="#pyanaconda.nm.nm_device_ip_addresses" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return IP addresses of device in ACTIVATED state.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.5)"><em>str</em></a>) &#8211; name of device</li>
+<li><strong>version</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.5)"><em>int</em></a>) &#8211; version of IP protocol (value 4 or 6)</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">IP addresses of device, empty list if device is not
+in ACTIVATED state</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first">list of strings</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><ul class="first last simple">
+<li><strong>UnknownDeviceError</strong> &#8211; if device is not found</li>
+<li><strong>PropertyNotFoundError</strong> &#8211; if IP configuration is not found</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyanaconda.nm.nm_device_ip_config">
+<code class="descclassname">pyanaconda.nm.</code><code class="descname">nm_device_ip_config</code><span class="sig-paren">(</span><em>name</em>, <em>version=4</em><span class="sig-paren">)</span><a class="headerlink" href="#pyanaconda.nm.nm_device_ip_config" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return IP configurations of device in ACTIVATED state.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.5)"><em>str</em></a>) &#8211; name of device</li>
+<li><strong>version</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.5)"><em>int</em></a>) &#8211; version of IP protocol (value 4 or 6)</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">IP configuration of device, empty list if device is not
+in ACTIVATED state</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><div class="line-block">
+<div class="line">[[[address1, prefix1, gateway1], [address2, prefix2, gateway2], ...],</div>
+<div class="line">[nameserver1, nameserver2]]</div>
+<div class="line">addressX, gatewayX: string</div>
+<div class="line">prefixX: int</div>
+</div>
+</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><ul class="first last simple">
+<li><strong>UnknownDeviceError</strong> &#8211; if device is not found</li>
+<li><strong>PropertyNotFoundError</strong> &#8211; if ip configuration is not found</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyanaconda.nm.nm_device_is_slave">
+<code class="descclassname">pyanaconda.nm.</code><code class="descname">nm_device_is_slave</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#pyanaconda.nm.nm_device_is_slave" title="Permalink to this definition">¶</a></dt>
+<dd><p>Is the device a slave?</p>
+<p>Exceptions:
+UnknownDeviceError if device is not found</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyanaconda.nm.nm_device_perm_hwaddress">
+<code class="descclassname">pyanaconda.nm.</code><code class="descname">nm_device_perm_hwaddress</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#pyanaconda.nm.nm_device_perm_hwaddress" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return active hardware address of device (&#8216;PermHwAddress&#8217; property)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.5)"><em>str</em></a>) &#8211; name of device</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">active hardware address of device (&#8216;PermHwAddress&#8217; property)</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.5)">str</a></p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><ul class="first last simple">
+<li><strong>UnknownDeviceError</strong> &#8211; if device is not found</li>
+<li><strong>PropertyNotFoundError</strong> &#8211; if &#8216;PermHwAddress&#8217; property is not found</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyanaconda.nm.nm_device_property">
+<code class="descclassname">pyanaconda.nm.</code><code class="descname">nm_device_property</code><span class="sig-paren">(</span><em>name</em>, <em>prop</em><span class="sig-paren">)</span><a class="headerlink" href="#pyanaconda.nm.nm_device_property" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return value of device NM property</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.5)"><em>str</em></a>) &#8211; name of device</li>
+<li><strong>prop</strong> &#8211; property</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">value of device&#8217;s property</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first">unpacked GDBus value</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><ul class="first last simple">
+<li><strong>UnknownDeviceError</strong> &#8211; if device is not found</li>
+<li><strong>PropertyNotFoundError</strong> &#8211; if property is not found</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyanaconda.nm.nm_device_setting_value">
+<code class="descclassname">pyanaconda.nm.</code><code class="descname">nm_device_setting_value</code><span class="sig-paren">(</span><em>name</em>, <em>key1</em>, <em>key2</em><span class="sig-paren">)</span><a class="headerlink" href="#pyanaconda.nm.nm_device_setting_value" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return value of device&#8217;s setting specified by key1 and key2.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.5)"><em>str</em></a>) &#8211; name of device</li>
+<li><strong>key1</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.5)"><em>str</em></a>) &#8211; first-level key of setting (eg &#8220;connection&#8221;)</li>
+<li><strong>key2</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.5)"><em>str</em></a>) &#8211; second-level key of setting (eg &#8220;uuid&#8221;)</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">value of setting or None if the setting was not found
+which means it does not exist or default value is used
+by NM</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first">unpacked GDBus variant or None</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><ul class="first last simple">
+<li><strong>UnknownDeviceError</strong> &#8211; if device is not found</li>
+<li><strong>SettingsNotFoundError</strong> &#8211; if settings were not found
+(eg for &#8220;wlan0&#8221;)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyanaconda.nm.nm_device_slaves">
+<code class="descclassname">pyanaconda.nm.</code><code class="descname">nm_device_slaves</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#pyanaconda.nm.nm_device_slaves" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return slaves of device.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.5)"><em>str</em></a>) &#8211; name of device</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">names of slaves of device or None if device has no &#8216;Slaves&#8217; property</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">list of strings or None</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><strong>UnknownDeviceError</strong> &#8211; if device is not found</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyanaconda.nm.nm_device_type">
+<code class="descclassname">pyanaconda.nm.</code><code class="descname">nm_device_type</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#pyanaconda.nm.nm_device_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return device&#8217;s type (&#8216;DeviceType&#8217; property).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.5)"><em>str</em></a>) &#8211; name of device</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">device type</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first">integer</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><ul class="first last simple">
+<li><strong>UnknownDeviceError</strong> &#8211; if device is not found</li>
+<li><strong>PropertyNotFoundError</strong> &#8211; if &#8216;DeviceType&#8217; property is not found</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyanaconda.nm.nm_device_type_is_bond">
+<code class="descclassname">pyanaconda.nm.</code><code class="descname">nm_device_type_is_bond</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#pyanaconda.nm.nm_device_type_is_bond" title="Permalink to this definition">¶</a></dt>
+<dd><p>Is the type of device bond?</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.5)"><em>str</em></a>) &#8211; name of device</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">True if type of device is BOND, False otherwise</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.5)">bool</a></p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><ul class="first last simple">
+<li><strong>UnknownDeviceError</strong> &#8211; if device is not found</li>
+<li><strong>PropertyNotFoundError</strong> &#8211; if property is not found</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyanaconda.nm.nm_device_type_is_bridge">
+<code class="descclassname">pyanaconda.nm.</code><code class="descname">nm_device_type_is_bridge</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#pyanaconda.nm.nm_device_type_is_bridge" title="Permalink to this definition">¶</a></dt>
+<dd><p>Is the type of device bridge?</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.5)"><em>str</em></a>) &#8211; name of device</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">True if type of device is BRIDGE, False otherwise</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.5)">bool</a></p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><ul class="first last simple">
+<li><strong>UnknownDeviceError</strong> &#8211; if device is not found</li>
+<li><strong>PropertyNotFoundError</strong> &#8211; if property is not found</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyanaconda.nm.nm_device_type_is_ethernet">
+<code class="descclassname">pyanaconda.nm.</code><code class="descname">nm_device_type_is_ethernet</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#pyanaconda.nm.nm_device_type_is_ethernet" title="Permalink to this definition">¶</a></dt>
+<dd><p>Is the type of device ethernet?</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.5)"><em>str</em></a>) &#8211; name of device</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">True if type of device is ETHERNET, False otherwise</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.5)">bool</a></p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><ul class="first last simple">
+<li><strong>UnknownDeviceError</strong> &#8211; if device is not found</li>
+<li><strong>PropertyNotFoundError</strong> &#8211; if property is not found</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyanaconda.nm.nm_device_type_is_infiniband">
+<code class="descclassname">pyanaconda.nm.</code><code class="descname">nm_device_type_is_infiniband</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#pyanaconda.nm.nm_device_type_is_infiniband" title="Permalink to this definition">¶</a></dt>
+<dd><p>Is the type of device infiniband?</p>
+<p>Exceptions:
+UnknownDeviceError if device is not found
+PropertyNotFoundError if type is not found</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyanaconda.nm.nm_device_type_is_team">
+<code class="descclassname">pyanaconda.nm.</code><code class="descname">nm_device_type_is_team</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#pyanaconda.nm.nm_device_type_is_team" title="Permalink to this definition">¶</a></dt>
+<dd><p>Is the type of device team?</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.5)"><em>str</em></a>) &#8211; name of device</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">True if type of device is TEAM, False otherwise</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.5)">bool</a></p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><ul class="first last simple">
+<li><strong>UnknownDeviceError</strong> &#8211; if device is not found</li>
+<li><strong>PropertyNotFoundError</strong> &#8211; if property is not found</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyanaconda.nm.nm_device_type_is_vlan">
+<code class="descclassname">pyanaconda.nm.</code><code class="descname">nm_device_type_is_vlan</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#pyanaconda.nm.nm_device_type_is_vlan" title="Permalink to this definition">¶</a></dt>
+<dd><p>Is the type of device vlan?</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.5)"><em>str</em></a>) &#8211; name of device</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">True if type of device is VLAN, False otherwise</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.5)">bool</a></p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><ul class="first last simple">
+<li><strong>UnknownDeviceError</strong> &#8211; if device is not found</li>
+<li><strong>PropertyNotFoundError</strong> &#8211; if property is not found</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyanaconda.nm.nm_device_type_is_wifi">
+<code class="descclassname">pyanaconda.nm.</code><code class="descname">nm_device_type_is_wifi</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#pyanaconda.nm.nm_device_type_is_wifi" title="Permalink to this definition">¶</a></dt>
+<dd><p>Is the type of device wifi?</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.5)"><em>str</em></a>) &#8211; name of device</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">True if type of device is WIFI, False otherwise</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.5)">bool</a></p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><ul class="first last simple">
+<li><strong>UnknownDeviceError</strong> &#8211; if device is not found</li>
+<li><strong>PropertyNotFoundError</strong> &#8211; if property is not found</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyanaconda.nm.nm_device_valid_hwaddress">
+<code class="descclassname">pyanaconda.nm.</code><code class="descname">nm_device_valid_hwaddress</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#pyanaconda.nm.nm_device_valid_hwaddress" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return valid hardware address of device depending on type of the device
+(&#8216;PermHwAddress&#8217; property for wired and wireless or &#8216;HwAddress&#8217; property for others)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.5)"><em>str</em></a>) &#8211; name of device</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">active hardware address of device
+(&#8216;HwAddress&#8217; or &#8216;PermHwAddress&#8217; property)</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.5)">str</a></p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><ul class="first last simple">
+<li><strong>UnknownDeviceError</strong> &#8211; if device is not found</li>
+<li><strong>PropertyNotFoundError</strong> &#8211; if property is not found</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyanaconda.nm.nm_devices">
+<code class="descclassname">pyanaconda.nm.</code><code class="descname">nm_devices</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyanaconda.nm.nm_devices" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return names of network devices supported in installer.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">names of network devices supported in installer</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">list of strings</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyanaconda.nm.nm_disconnect_device">
+<code class="descclassname">pyanaconda.nm.</code><code class="descname">nm_disconnect_device</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#pyanaconda.nm.nm_disconnect_device" title="Permalink to this definition">¶</a></dt>
+<dd><p>Disconnect the device.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><strong>UnknownDeviceError</strong> &#8211; if device is not found</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyanaconda.nm.nm_get_all_settings">
+<code class="descclassname">pyanaconda.nm.</code><code class="descname">nm_get_all_settings</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyanaconda.nm.nm_get_all_settings" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return all settings for logging.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyanaconda.nm.nm_get_settings">
+<code class="descclassname">pyanaconda.nm.</code><code class="descname">nm_get_settings</code><span class="sig-paren">(</span><em>value</em>, <em>key1</em>, <em>key2</em>, <em>format_value=&lt;function &lt;lambda&gt;&gt;</em><span class="sig-paren">)</span><a class="headerlink" href="#pyanaconda.nm.nm_get_settings" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return settings having given value of key1, key2 setting</p>
+<p>Returns list of settings(dicts) , None if settings were not found.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyanaconda.nm.nm_hwaddr_to_device_name">
+<code class="descclassname">pyanaconda.nm.</code><code class="descname">nm_hwaddr_to_device_name</code><span class="sig-paren">(</span><em>hwaddr</em><span class="sig-paren">)</span><a class="headerlink" href="#pyanaconda.nm.nm_hwaddr_to_device_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return device name of interface with given hardware address.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>hwaddr</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.5)"><em>str</em></a>) &#8211; hardware address</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">device name of interface having hwaddr</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.5)">str</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyanaconda.nm.nm_ipv4_to_dbus_int">
+<code class="descclassname">pyanaconda.nm.</code><code class="descname">nm_ipv4_to_dbus_int</code><span class="sig-paren">(</span><em>address</em><span class="sig-paren">)</span><a class="headerlink" href="#pyanaconda.nm.nm_ipv4_to_dbus_int" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert ipv4 address from string to int for dbus (switched endianess).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>address</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.5)"><em>str</em></a>) &#8211; IPv4 address</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">IPv4 address as an integer &#8216;u&#8217; for NM dbus setting</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">integer</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyanaconda.nm.nm_ipv6_to_dbus_ay">
+<code class="descclassname">pyanaconda.nm.</code><code class="descname">nm_ipv6_to_dbus_ay</code><span class="sig-paren">(</span><em>address</em><span class="sig-paren">)</span><a class="headerlink" href="#pyanaconda.nm.nm_ipv6_to_dbus_ay" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert ipv6 address from string to list of bytes &#8216;ay&#8217; for dbus</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>address</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.5)"><em>str</em></a>) &#8211; IPv6 address</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">address in format &#8216;ay&#8217; for NM dbus setting</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">list of bytes</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyanaconda.nm.nm_is_connected">
+<code class="descclassname">pyanaconda.nm.</code><code class="descname">nm_is_connected</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyanaconda.nm.nm_is_connected" title="Permalink to this definition">¶</a></dt>
+<dd><p>Is NetworkManager connected?</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">True if NM is connected, False otherwise.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.5)">bool</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyanaconda.nm.nm_is_connecting">
+<code class="descclassname">pyanaconda.nm.</code><code class="descname">nm_is_connecting</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyanaconda.nm.nm_is_connecting" title="Permalink to this definition">¶</a></dt>
+<dd><p>Is NetworkManager connecting?</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">True if NM is in CONNECTING state, False otherwise.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.5)">bool</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyanaconda.nm.nm_ntp_servers_from_dhcp">
+<code class="descclassname">pyanaconda.nm.</code><code class="descname">nm_ntp_servers_from_dhcp</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyanaconda.nm.nm_ntp_servers_from_dhcp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return NTP servers obtained by DHCP.</p>
+<p>return: NTP servers obtained by DHCP
+rtype: list of str</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyanaconda.nm.nm_state">
+<code class="descclassname">pyanaconda.nm.</code><code class="descname">nm_state</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyanaconda.nm.nm_state" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return state of NetworkManager</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">state of NetworkManager</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">integer</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyanaconda.nm.nm_update_settings_of_device">
+<code class="descclassname">pyanaconda.nm.</code><code class="descname">nm_update_settings_of_device</code><span class="sig-paren">(</span><em>name</em>, <em>new_values</em><span class="sig-paren">)</span><a class="headerlink" href="#pyanaconda.nm.nm_update_settings_of_device" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update setting of device.</p>
+<p>The type of value is determined from existing settings of device.
+If setting for key1, key2 does not exist, default_type_str is used or
+if <code class="docutils literal"><span class="pre">None</span></code>, the type is inferred from the value supplied (string and bool only).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.5)"><em>str</em></a>) &#8211; name of device</li>
+<li><strong>new_values</strong> &#8211; <div class="line-block">
+<div class="line">list of settings with new values and its types</div>
+<div class="line">[[key1, key2, value, default_type_str]]</div>
+<div class="line">key1: first-level key of setting (eg &#8220;connection&#8221;)</div>
+<div class="line">key2: second-level key of setting (eg &#8220;uuid&#8221;)</div>
+<div class="line">value: new value</div>
+<div class="line">default_type_str:</div>
+</div>
+<blockquote>
+<div>dbus type of new value to be used
+if the setting does not already exist;
+if <code class="docutils literal"><span class="pre">None</span></code>, the type is inferred from
+value (string and bool only)</div></blockquote>
+</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><ul class="first last simple">
+<li><strong>UnknownDeviceError</strong> &#8211; if device is not found</li>
+<li><strong>SettingsNotFoundError</strong> &#8211; if settings were not found
+(eg for &#8220;wlan0&#8221;)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyanaconda.nm.test">
+<code class="descclassname">pyanaconda.nm.</code><code class="descname">test</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyanaconda.nm.test" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="pyanaconda-ntp-module">
+<h2>pyanaconda.ntp module<a class="headerlink" href="#pyanaconda-ntp-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-pyanaconda.product">
+<span id="pyanaconda-product-module"></span><h2>pyanaconda.product module<a class="headerlink" href="#module-pyanaconda.product" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="pyanaconda.product.distributionText">
+<code class="descclassname">pyanaconda.product.</code><code class="descname">distributionText</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyanaconda.product.distributionText" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="pyanaconda.product.translated_new_install_name">
+<code class="descclassname">pyanaconda.product.</code><code class="descname">translated_new_install_name</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyanaconda.product.translated_new_install_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="pyanaconda-progress-module">
+<h2>pyanaconda.progress module<a class="headerlink" href="#pyanaconda-progress-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-pyanaconda.pwpolicy">
+<span id="pyanaconda-pwpolicy-module"></span><h2>pyanaconda.pwpolicy module<a class="headerlink" href="#module-pyanaconda.pwpolicy" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="pyanaconda.pwpolicy.F22_PwPolicy">
+<em class="property">class </em><code class="descclassname">pyanaconda.pwpolicy.</code><code class="descname">F22_PwPolicy</code><span class="sig-paren">(</span><em>writePriority=0</em>, <em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#pyanaconda.pwpolicy.F22_PwPolicy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pykickstart.base.KickstartCommand</span></code></p>
+<p>Kickstart command implementing password policy.</p>
+<dl class="method">
+<dt id="pyanaconda.pwpolicy.F22_PwPolicy.dataList">
+<code class="descname">dataList</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyanaconda.pwpolicy.F22_PwPolicy.dataList" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pyanaconda.pwpolicy.F22_PwPolicy.get_policy">
+<code class="descname">get_policy</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#pyanaconda.pwpolicy.F22_PwPolicy.get_policy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the policy by name</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.5)"><em>str</em></a>) &#8211; Name of the policy to return.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyanaconda.pwpolicy.F22_PwPolicy.parse">
+<code class="descname">parse</code><span class="sig-paren">(</span><em>args</em><span class="sig-paren">)</span><a class="headerlink" href="#pyanaconda.pwpolicy.F22_PwPolicy.parse" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pyanaconda.pwpolicy.F22_PwPolicy.removedAttrs">
+<code class="descname">removedAttrs</code><em class="property"> = []</em><a class="headerlink" href="#pyanaconda.pwpolicy.F22_PwPolicy.removedAttrs" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pyanaconda.pwpolicy.F22_PwPolicy.removedKeywords">
+<code class="descname">removedKeywords</code><em class="property"> = []</em><a class="headerlink" href="#pyanaconda.pwpolicy.F22_PwPolicy.removedKeywords" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pyanaconda.pwpolicy.F22_PwPolicyData">
+<em class="property">class </em><code class="descclassname">pyanaconda.pwpolicy.</code><code class="descname">F22_PwPolicyData</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#pyanaconda.pwpolicy.F22_PwPolicyData" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">pykickstart.base.BaseData</span></code></p>
+<p>Kickstart Data object to hold information about pwpolicy.</p>
+<dl class="attribute">
+<dt id="pyanaconda.pwpolicy.F22_PwPolicyData.removedAttrs">
+<code class="descname">removedAttrs</code><em class="property"> = []</em><a class="headerlink" href="#pyanaconda.pwpolicy.F22_PwPolicyData.removedAttrs" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="pyanaconda.pwpolicy.F22_PwPolicyData.removedKeywords">
+<code class="descname">removedKeywords</code><em class="property"> = []</em><a class="headerlink" href="#pyanaconda.pwpolicy.F22_PwPolicyData.removedKeywords" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="pyanaconda-queuefactory-module">
+<h2>pyanaconda.queuefactory module<a class="headerlink" href="#pyanaconda-queuefactory-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-pyanaconda.regexes">
+<span id="pyanaconda-regexes-module"></span><h2>pyanaconda.regexes module<a class="headerlink" href="#module-pyanaconda.regexes" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="pyanaconda-rescue-module">
+<h2>pyanaconda.rescue module<a class="headerlink" href="#pyanaconda-rescue-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-pyanaconda.safe_dbus">
+<span id="pyanaconda-safe-dbus-module"></span><h2>pyanaconda.safe_dbus module<a class="headerlink" href="#module-pyanaconda.safe_dbus" title="Permalink to this headline">¶</a></h2>
+<p>Module providing thread-safe and mainloop-safe DBus operations.</p>
+<dl class="exception">
+<dt id="pyanaconda.safe_dbus.DBusCallError">
+<em class="property">exception </em><code class="descclassname">pyanaconda.safe_dbus.</code><code class="descname">DBusCallError</code><a class="headerlink" href="#pyanaconda.safe_dbus.DBusCallError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#pyanaconda.safe_dbus.SafeDBusError" title="pyanaconda.safe_dbus.SafeDBusError"><code class="xref py py-class docutils literal"><span class="pre">pyanaconda.safe_dbus.SafeDBusError</span></code></a></p>
+<p>Class for the errors related to calling methods over DBus.</p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="pyanaconda.safe_dbus.DBusPropertyError">
+<em class="property">exception </em><code class="descclassname">pyanaconda.safe_dbus.</code><code class="descname">DBusPropertyError</code><a class="headerlink" href="#pyanaconda.safe_dbus.DBusPropertyError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#pyanaconda.safe_dbus.DBusCallError" title="pyanaconda.safe_dbus.DBusCallError"><code class="xref py py-class docutils literal"><span class="pre">pyanaconda.safe_dbus.DBusCallError</span></code></a></p>
+<p>Class for the errors related to getting property values over DBus.</p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="pyanaconda.safe_dbus.SafeDBusError">
+<em class="property">exception </em><code class="descclassname">pyanaconda.safe_dbus.</code><code class="descname">SafeDBusError</code><a class="headerlink" href="#pyanaconda.safe_dbus.SafeDBusError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/exceptions.html#Exception" title="(in Python v3.5)"><code class="xref py py-class docutils literal"><span class="pre">Exception</span></code></a></p>
+<p>Class for exceptions defined in this module.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyanaconda.safe_dbus.call_sync">
+<code class="descclassname">pyanaconda.safe_dbus.</code><code class="descname">call_sync</code><span class="sig-paren">(</span><em>service</em>, <em>obj_path</em>, <em>iface</em>, <em>method</em>, <em>args</em>, <em>connection=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pyanaconda.safe_dbus.call_sync" title="Permalink to this definition">¶</a></dt>
+<dd><p>Safely call a given method on a given object of a given service over DBus
+passing given arguments. If a connection is given, it is used, otherwise a
+new connection is established. Safely means that it is a synchronous,
+thread-safe call not using any main loop.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>service</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.5)"><em>str</em></a>) &#8211; DBus service to use</li>
+<li><strong>obj_path</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.5)"><em>str</em></a>) &#8211; object path of the object to call method on</li>
+<li><strong>iface</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.5)"><em>str</em></a>) &#8211; interface to use</li>
+<li><strong>method</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.5)"><em>str</em></a>) &#8211; name of the method to call</li>
+<li><strong>args</strong> (<em>GVariant</em>) &#8211; arguments to pass to the method</li>
+<li><strong>connection</strong> (<em>Gio.DBusConnection</em>) &#8211; connection to use (if None, a new connection is
+established)</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">unpacked value returned by the method</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first">tuple with elements that depend on the method</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><strong>DBusCallError</strong> &#8211; if some DBus related error appears</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyanaconda.safe_dbus.get_new_session_connection">
+<code class="descclassname">pyanaconda.safe_dbus.</code><code class="descname">get_new_session_connection</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyanaconda.safe_dbus.get_new_session_connection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a connection handle for the per-user-login-session message bus.</p>
+<p>!!! RUN THIS EARLY !!! like, before any other threads start. Connections to
+the session bus must be made with the effective UID of the login user,
+which in live installs is not the UID of anaconda. This means we need to
+call seteuid in this method, and doing that after threads have started will
+probably do something weird.</p>
+<p>Live installs use consolehelper to run as root, which sets the original
+UID in $USERHELPER_UID.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">the session connection handle</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first">Gio.DBusConnection</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><ul class="first last simple">
+<li><strong>DBusCallError</strong> &#8211; if some DBus related error appears</li>
+<li><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#OSError" title="(in Python v3.5)"><strong>OSError</strong></a> &#8211; if unable to set the effective UID</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyanaconda.safe_dbus.get_new_system_connection">
+<code class="descclassname">pyanaconda.safe_dbus.</code><code class="descname">get_new_system_connection</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyanaconda.safe_dbus.get_new_system_connection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a new connection to the system bus.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyanaconda.safe_dbus.get_property_sync">
+<code class="descclassname">pyanaconda.safe_dbus.</code><code class="descname">get_property_sync</code><span class="sig-paren">(</span><em>service</em>, <em>obj_path</em>, <em>iface</em>, <em>prop_name</em>, <em>connection=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pyanaconda.safe_dbus.get_property_sync" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get value of a given property of a given object provided by a given service.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>service</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.5)"><em>str</em></a>) &#8211; DBus service to use</li>
+<li><strong>obj_path</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.5)"><em>str</em></a>) &#8211; object path</li>
+<li><strong>iface</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.5)"><em>str</em></a>) &#8211; interface to use</li>
+<li><strong>prop_name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.5)"><em>str</em></a>) &#8211; name of the property</li>
+<li><strong>connection</strong> (<em>Gio.DBusConnection</em>) &#8211; connection to use (if None, a new connection is
+established)</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">unpacked value of the property</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first">tuple with elements that depend on the type of the property</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><ul class="first last simple">
+<li><strong>DBusCallError</strong> &#8211; when the internal dbus_call_safe_sync invocation
+raises an exception</li>
+<li><strong>DBusPropertyError</strong> &#8211; when the given object doesn&#8217;t have the given
+property</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="pyanaconda-screen-access-module">
+<h2>pyanaconda.screen_access module<a class="headerlink" href="#pyanaconda-screen-access-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-pyanaconda.screensaver">
+<span id="pyanaconda-screensaver-module"></span><h2>pyanaconda.screensaver module<a class="headerlink" href="#module-pyanaconda.screensaver" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="pyanaconda.screensaver.inhibit_screensaver">
+<code class="descclassname">pyanaconda.screensaver.</code><code class="descname">inhibit_screensaver</code><span class="sig-paren">(</span><em>connection</em><span class="sig-paren">)</span><a class="headerlink" href="#pyanaconda.screensaver.inhibit_screensaver" title="Permalink to this definition">¶</a></dt>
+<dd><p>Inhibit the screensaver idle timer.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>connection</strong> (<em>Gio.DBusConnection</em>) &#8211; A handle for the session message bus</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The inhibit ID or None</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">int or None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="pyanaconda.screensaver.uninhibit_screensaver">
+<code class="descclassname">pyanaconda.screensaver.</code><code class="descname">uninhibit_screensaver</code><span class="sig-paren">(</span><em>connection</em>, <em>inhibit_id</em><span class="sig-paren">)</span><a class="headerlink" href="#pyanaconda.screensaver.uninhibit_screensaver" title="Permalink to this definition">¶</a></dt>
+<dd><p>Re-enable the screensaver idle timer.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>connection</strong> (<em>Gio.DBusConnection</em>) &#8211; A handle for the session message bus</li>
+<li><strong>inhibit_id</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.5)"><em>int</em></a>) &#8211; The ID returned by the inhibit method</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="pyanaconda-simpleconfig-module">
+<h2>pyanaconda.simpleconfig module<a class="headerlink" href="#pyanaconda-simpleconfig-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="pyanaconda-startup-utils-module">
+<h2>pyanaconda.startup_utils module<a class="headerlink" href="#pyanaconda-startup-utils-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="pyanaconda-storage-utils-module">
+<h2>pyanaconda.storage_utils module<a class="headerlink" href="#pyanaconda-storage-utils-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-pyanaconda.threads">
+<span id="pyanaconda-threads-module"></span><h2>pyanaconda.threads module<a class="headerlink" href="#module-pyanaconda.threads" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="pyanaconda.threads.AnacondaThread">
+<em class="property">class </em><code class="descclassname">pyanaconda.threads.</code><code class="descname">AnacondaThread</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#pyanaconda.threads.AnacondaThread" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/threading.html#threading.Thread" title="(in Python v3.5)"><code class="xref py py-class docutils literal"><span class="pre">threading.Thread</span></code></a></p>
+<p>A threading.Thread subclass that exists only for a couple purposes:</p>
+<ol class="arabic simple">
+<li>Make exceptions that happen in a thread invoke our exception handling
+code as well.  Otherwise, threads will silently die and we are doing
+a lot of complicated code in them now.</li>
+<li>Remove themselves from the thread manager when completed.</li>
+<li>All created threads are made daemonic, which means anaconda will quit
+when the main process is killed.</li>
+</ol>
+<dl class="method">
+<dt id="pyanaconda.threads.AnacondaThread.run">
+<code class="descname">run</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#pyanaconda.threads.AnacondaThread.run" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pyanaconda.threads.ThreadManager">
+<em class="property">class </em><code class="descclassname">pyanaconda.threads.</code><code class="descname">ThreadManager</code><a class="headerlink" href="#pyanaconda.threads.ThreadManager" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.5)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
+<p>A singleton class for managing threads and processes.</p>
+<p>Notes:
+THE INSTANCE HAS TO BE CREATED IN THE MAIN THREAD!</p>
+<p>This manager makes one assumption that contradicts python&#8217;s
+threading module documentation.  In this class, we assume that thread
+names are unique and meaningful.  This is an okay assumption for us
+to make given that anaconda is only ever going to have a handful of
+special purpose threads.</p>
+<dl class="method">
+<dt id="pyanaconda.threads.ThreadManager.add">
+<code class="descname">add</code><span class="sig-paren">(</span><em>obj</em><span class="sig-paren">)</span><a class="headerlink" href="#pyanaconda.threads.ThreadManager.add" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given a Thread or Process object, add it to the list of known objects
+and start it.  It is assumed that obj.name is unique and descriptive.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyanaconda.threads.ThreadManager.any_errors">
+<code class="descname">any_errors</code><a class="headerlink" href="#pyanaconda.threads.ThreadManager.any_errors" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return True of there have been any errors in any threads</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyanaconda.threads.ThreadManager.exists">
+<code class="descname">exists</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#pyanaconda.threads.ThreadManager.exists" title="Permalink to this definition">¶</a></dt>
+<dd><p>Determine if a thread or process exists with the given name.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyanaconda.threads.ThreadManager.get">
+<code class="descname">get</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#pyanaconda.threads.ThreadManager.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given an object name, see if it exists and return the object.
+Return None if no such object exists.  Additionally, this method
+will re-raise any uncaught exception in the thread.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyanaconda.threads.ThreadManager.get_error">
+<code class="descname">get_error</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#pyanaconda.threads.ThreadManager.get_error" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the error data for a thread using its name</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyanaconda.threads.ThreadManager.in_main_thread">
+<code class="descname">in_main_thread</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyanaconda.threads.ThreadManager.in_main_thread" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return True if it is run in the main thread.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyanaconda.threads.ThreadManager.names">
+<code class="descname">names</code><a class="headerlink" href="#pyanaconda.threads.ThreadManager.names" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the names of the running threads.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">list of thread names</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">list of strings</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyanaconda.threads.ThreadManager.raise_if_error">
+<code class="descname">raise_if_error</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#pyanaconda.threads.ThreadManager.raise_if_error" title="Permalink to this definition">¶</a></dt>
+<dd><p>If a thread has failed due to an exception, raise it into the main
+thread and remove it from errors.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyanaconda.threads.ThreadManager.remove">
+<code class="descname">remove</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#pyanaconda.threads.ThreadManager.remove" title="Permalink to this definition">¶</a></dt>
+<dd><p>Removes a thread from the list of known objects.  This should only
+be called when a thread exits, or there will be no way to get a
+handle on it.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pyanaconda.threads.ThreadManager.running">
+<code class="descname">running</code><a class="headerlink" href="#pyanaconda.threads.ThreadManager.running" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the number of running threads.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">number of running threads</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.5)">int</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyanaconda.threads.ThreadManager.set_error">
+<code class="descname">set_error</code><span class="sig-paren">(</span><em>name</em>, <em>*exc_info</em><span class="sig-paren">)</span><a class="headerlink" href="#pyanaconda.threads.ThreadManager.set_error" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the error data for a thread</p>
+<p>The exception data is expected to be the tuple from sys.exc_info()</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyanaconda.threads.ThreadManager.wait">
+<code class="descname">wait</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#pyanaconda.threads.ThreadManager.wait" title="Permalink to this definition">¶</a></dt>
+<dd><p>Wait for the thread to exit and if the thread exited with an error
+re-raise it here.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyanaconda.threads.ThreadManager.wait_all">
+<code class="descname">wait_all</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyanaconda.threads.ThreadManager.wait_all" title="Permalink to this definition">¶</a></dt>
+<dd><p>Wait for all threads to exit and if there was an error re-raise it.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyanaconda.threads.ThreadManager.wait_for_error_threads">
+<code class="descname">wait_for_error_threads</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyanaconda.threads.ThreadManager.wait_for_error_threads" title="Permalink to this definition">¶</a></dt>
+<dd><p>Waits for all threads that caused exceptions. In other words, waits for
+exception handling (possibly interactive) to be finished.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="pyanaconda.threads.initThreading">
+<code class="descclassname">pyanaconda.threads.</code><code class="descname">initThreading</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyanaconda.threads.initThreading" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set up threading for anaconda&#8217;s use. This method must be called before
+any GTK or threading code is called, or else threads will only run when
+an event is triggered in the GTK main loop. And IT HAS TO BE CALLED IN
+THE MAIN THREAD.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="pyanaconda-timezone-module">
+<h2>pyanaconda.timezone module<a class="headerlink" href="#pyanaconda-timezone-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="pyanaconda-users-module">
+<h2>pyanaconda.users module<a class="headerlink" href="#pyanaconda-users-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-pyanaconda.version">
+<span id="pyanaconda-version-module"></span><h2>pyanaconda.version module<a class="headerlink" href="#module-pyanaconda.version" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="pyanaconda-vnc-module">
+<h2>pyanaconda.vnc module<a class="headerlink" href="#pyanaconda-vnc-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-pyanaconda">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-pyanaconda" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="pyanaconda.installclasses.html" class="btn btn-neutral float-right" title="pyanaconda.installclasses package" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="modules.html" class="btn btn-neutral" title="pyanaconda" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Red Hat, Inc..
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'26.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

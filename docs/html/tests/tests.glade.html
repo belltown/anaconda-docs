@@ -1,0 +1,418 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>tests.glade package &mdash; Anaconda 26.1 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Anaconda 26.1 documentation" href="../index.html"/>
+        <link rel="up" title="tests package" href="tests.html"/>
+        <link rel="next" title="tests.gui package" href="tests.gui.html"/>
+        <link rel="prev" title="tests.gettext_tests package" href="tests.gettext_tests.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Anaconda
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                26.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../intro.html">Introduction to Anaconda</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../release.html">Building a Release</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../boot-options.html">Anaconda Boot Options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../kickstart.html">Anaconda Kickstart Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../commit-log.html">Rules for commit messages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../driverdisc.html">Brief description of DriverDisc version 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../iscsi.html">iSCSI and Anaconda</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../multipath.html">Multipath and Anaconda</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules.html">pyanaconda</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../testing.html">Testing</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">tests</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="tests.html">tests package</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="tests.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="tests.dd_tests.html">tests.dd_tests package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.dracut_tests.html">tests.dracut_tests package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.gettext_tests.html">tests.gettext_tests package</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">tests.glade package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.gui.html">tests.gui package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.lib.html">tests.lib package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.pyanaconda_tests.html">tests.pyanaconda_tests package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.regex_tests.html">tests.regex_tests package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tests.storage.html">tests.storage package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="tests.html#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tests.html#module-tests.usercustomize">tests.usercustomize module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tests.html#module-tests">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Anaconda</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="modules.html">tests</a> &raquo;</li>
+      
+          <li><a href="tests.html">tests package</a> &raquo;</li>
+      
+    <li>tests.glade package</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/tests/tests.glade.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="tests-glade-package">
+<h1>tests.glade package<a class="headerlink" href="#tests-glade-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-tests.glade.check_format_string">
+<span id="tests-glade-check-format-string-module"></span><h2>tests.glade.check_format_string module<a class="headerlink" href="#module-tests.glade.check_format_string" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="tests.glade.check_format_string.CheckFormatString">
+<em class="property">class </em><code class="descclassname">tests.glade.check_format_string.</code><code class="descname">CheckFormatString</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#tests.glade.check_format_string.CheckFormatString" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">gladecheck.GladeTest</span></code></p>
+<dl class="method">
+<dt id="tests.glade.check_format_string.CheckFormatString.checkGlade">
+<code class="descname">checkGlade</code><span class="sig-paren">(</span><em>tree</em><span class="sig-paren">)</span><a class="headerlink" href="#tests.glade.check_format_string.CheckFormatString.checkGlade" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reject translatable format string in glade.</p>
+<p>Since format substitution is language-dependent, gettext is unable
+to check the validity of format string translations for strings
+within glade. Instead, the format string constant, the translation
+substitution, and the format substitution should all happen outside
+of glade. Untranslated placeholder strings are allowable within
+glade.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-tests.glade.check_glade_validity">
+<span id="tests-glade-check-glade-validity-module"></span><h2>tests.glade.check_glade_validity module<a class="headerlink" href="#module-tests.glade.check_glade_validity" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="tests.glade.check_glade_validity.CheckValidity">
+<em class="property">class </em><code class="descclassname">tests.glade.check_glade_validity.</code><code class="descname">CheckValidity</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#tests.glade.check_glade_validity.CheckValidity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">gladecheck.GladeTest</span></code></p>
+<dl class="method">
+<dt id="tests.glade.check_glade_validity.CheckValidity.checkGlade">
+<code class="descname">checkGlade</code><span class="sig-paren">(</span><em>tree</em><span class="sig-paren">)</span><a class="headerlink" href="#tests.glade.check_glade_validity.CheckValidity.checkGlade" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check for common glade validity errors</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-tests.glade.check_hidden_translatable">
+<span id="tests-glade-check-hidden-translatable-module"></span><h2>tests.glade.check_hidden_translatable module<a class="headerlink" href="#module-tests.glade.check_hidden_translatable" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="tests.glade.check_hidden_translatable.CheckTranslatableNotebook">
+<em class="property">class </em><code class="descclassname">tests.glade.check_hidden_translatable.</code><code class="descname">CheckTranslatableNotebook</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#tests.glade.check_hidden_translatable.CheckTranslatableNotebook" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">gladecheck.GladeTest</span></code></p>
+<dl class="method">
+<dt id="tests.glade.check_hidden_translatable.CheckTranslatableNotebook.checkGlade">
+<code class="descname">checkGlade</code><span class="sig-paren">(</span><em>glade_tree</em><span class="sig-paren">)</span><a class="headerlink" href="#tests.glade.check_hidden_translatable.CheckTranslatableNotebook.checkGlade" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check that unshown GtkNotebook tabs are not translatable.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="tests.glade.check_hidden_translatable.CheckTranslatableTreeview">
+<em class="property">class </em><code class="descclassname">tests.glade.check_hidden_translatable.</code><code class="descname">CheckTranslatableTreeview</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#tests.glade.check_hidden_translatable.CheckTranslatableTreeview" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">gladecheck.GladeTest</span></code></p>
+<dl class="method">
+<dt id="tests.glade.check_hidden_translatable.CheckTranslatableTreeview.checkGlade">
+<code class="descname">checkGlade</code><span class="sig-paren">(</span><em>glade_tree</em><span class="sig-paren">)</span><a class="headerlink" href="#tests.glade.check_hidden_translatable.CheckTranslatableTreeview.checkGlade" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check that unshown GtkTreeview column headers are not translatable.</p>
+<p>These values are not displayed and should not be translated.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-tests.glade.check_icons">
+<span id="tests-glade-check-icons-module"></span><h2>tests.glade.check_icons module<a class="headerlink" href="#module-tests.glade.check_icons" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="tests.glade.check_icons.CheckIcon">
+<em class="property">class </em><code class="descclassname">tests.glade.check_icons.</code><code class="descname">CheckIcon</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#tests.glade.check_icons.CheckIcon" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">gladecheck.GladeTest</span></code></p>
+<dl class="method">
+<dt id="tests.glade.check_icons.CheckIcon.checkGlade">
+<code class="descname">checkGlade</code><span class="sig-paren">(</span><em>glade_tree</em><span class="sig-paren">)</span><a class="headerlink" href="#tests.glade.check_icons.CheckIcon.checkGlade" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check that all icons referenced from glade files are valid in the gnome icon theme.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-tests.glade.check_invisible_char">
+<span id="tests-glade-check-invisible-char-module"></span><h2>tests.glade.check_invisible_char module<a class="headerlink" href="#module-tests.glade.check_invisible_char" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="tests.glade.check_invisible_char.CheckInvisibleChar">
+<em class="property">class </em><code class="descclassname">tests.glade.check_invisible_char.</code><code class="descname">CheckInvisibleChar</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#tests.glade.check_invisible_char.CheckInvisibleChar" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">gladecheck.GladeTest</span></code></p>
+<dl class="method">
+<dt id="tests.glade.check_invisible_char.CheckInvisibleChar.checkGlade">
+<code class="descname">checkGlade</code><span class="sig-paren">(</span><em>tree</em><span class="sig-paren">)</span><a class="headerlink" href="#tests.glade.check_invisible_char.CheckInvisibleChar.checkGlade" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check that the invisible_char in glade files is actually a char.</p>
+<p>The invisible char is often non-ASCII and sometimes that gets clobbered.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-tests.glade.check_markup">
+<span id="tests-glade-check-markup-module"></span><h2>tests.glade.check_markup module<a class="headerlink" href="#module-tests.glade.check_markup" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="tests.glade.check_markup.CheckMarkup">
+<em class="property">class </em><code class="descclassname">tests.glade.check_markup.</code><code class="descname">CheckMarkup</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#tests.glade.check_markup.CheckMarkup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">gladecheck.GladeTest</span></code></p>
+<dl class="method">
+<dt id="tests.glade.check_markup.CheckMarkup.checkGlade">
+<code class="descname">checkGlade</code><span class="sig-paren">(</span><em>glade_tree</em><span class="sig-paren">)</span><a class="headerlink" href="#tests.glade.check_markup.CheckMarkup.checkGlade" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check the validity of Pango markup.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="tests.glade.check_markup.CheckMarkup.translatable">
+<code class="descname">translatable</code><em class="property"> = True</em><a class="headerlink" href="#tests.glade.check_markup.CheckMarkup.translatable" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="exception">
+<dt id="tests.glade.check_markup.PangoElementException">
+<em class="property">exception </em><code class="descclassname">tests.glade.check_markup.</code><code class="descname">PangoElementException</code><span class="sig-paren">(</span><em>element</em><span class="sig-paren">)</span><a class="headerlink" href="#tests.glade.check_markup.PangoElementException" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/exceptions.html#Exception" title="(in Python v3.5)"><code class="xref py py-class docutils literal"><span class="pre">Exception</span></code></a></p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-tests.glade.check_mnemonics">
+<span id="tests-glade-check-mnemonics-module"></span><h2>tests.glade.check_mnemonics module<a class="headerlink" href="#module-tests.glade.check_mnemonics" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="tests.glade.check_mnemonics.CheckMnemonics">
+<em class="property">class </em><code class="descclassname">tests.glade.check_mnemonics.</code><code class="descname">CheckMnemonics</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#tests.glade.check_mnemonics.CheckMnemonics" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">gladecheck.GladeTest</span></code></p>
+<dl class="method">
+<dt id="tests.glade.check_mnemonics.CheckMnemonics.checkGlade">
+<code class="descname">checkGlade</code><span class="sig-paren">(</span><em>glade_tree</em><span class="sig-paren">)</span><a class="headerlink" href="#tests.glade.check_mnemonics.CheckMnemonics.checkGlade" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check for widgets with keyboard accelerators but no mnemonic</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-tests.glade.check_pw_visibility">
+<span id="tests-glade-check-pw-visibility-module"></span><h2>tests.glade.check_pw_visibility module<a class="headerlink" href="#module-tests.glade.check_pw_visibility" title="Permalink to this headline">¶</a></h2>
+<p>Simple python script checking that password GtkEntries in the given .glade files
+have the visibility set to False.</p>
+<dl class="class">
+<dt id="tests.glade.check_pw_visibility.CheckPwVisibility">
+<em class="property">class </em><code class="descclassname">tests.glade.check_pw_visibility.</code><code class="descname">CheckPwVisibility</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#tests.glade.check_pw_visibility.CheckPwVisibility" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">gladecheck.GladeTest</span></code></p>
+<dl class="method">
+<dt id="tests.glade.check_pw_visibility.CheckPwVisibility.checkGlade">
+<code class="descname">checkGlade</code><span class="sig-paren">(</span><em>tree</em><span class="sig-paren">)</span><a class="headerlink" href="#tests.glade.check_pw_visibility.CheckPwVisibility.checkGlade" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check that password GtkEntries have the visibility set to False</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-tests.glade.check_viewport">
+<span id="tests-glade-check-viewport-module"></span><h2>tests.glade.check_viewport module<a class="headerlink" href="#module-tests.glade.check_viewport" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="tests.glade.check_viewport.CheckViewport">
+<em class="property">class </em><code class="descclassname">tests.glade.check_viewport.</code><code class="descname">CheckViewport</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#tests.glade.check_viewport.CheckViewport" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">gladecheck.GladeTest</span></code></p>
+<dl class="method">
+<dt id="tests.glade.check_viewport.CheckViewport.checkGlade">
+<code class="descname">checkGlade</code><span class="sig-paren">(</span><em>glade_tree</em><span class="sig-paren">)</span><a class="headerlink" href="#tests.glade.check_viewport.CheckViewport.checkGlade" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check that widgets that implement GtkScrollable are not in a viewport.</p>
+<p>If a widgets knows how to scroll itself we do not want to add an extra layer.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="tests-glade-run-glade-tests-module">
+<h2>tests.glade.run_glade_tests module<a class="headerlink" href="#tests-glade-run-glade-tests-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-tests.glade">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-tests.glade" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="tests.gui.html" class="btn btn-neutral float-right" title="tests.gui package" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="tests.gettext_tests.html" class="btn btn-neutral" title="tests.gettext_tests package" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Red Hat, Inc..
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'26.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

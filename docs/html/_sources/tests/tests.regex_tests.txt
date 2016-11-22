@@ -1,0 +1,78 @@
+tests.regex_tests package
+=========================
+
+Submodules
+----------
+
+tests.regex_tests.groupparse_test module
+----------------------------------------
+
+.. automodule:: tests.regex_tests.groupparse_test
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+tests.regex_tests.hostname_test module
+--------------------------------------
+
+.. automodule:: tests.regex_tests.hostname_test
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+tests.regex_tests.ibft_device_name_test module
+----------------------------------------------
+
+.. automodule:: tests.regex_tests.ibft_device_name_test
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+tests.regex_tests.iscsi_name_test module
+----------------------------------------
+
+.. automodule:: tests.regex_tests.iscsi_name_test
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+tests.regex_tests.netmask_test module
+-------------------------------------
+
+.. automodule:: tests.regex_tests.netmask_test
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+tests.regex_tests.repo_name_test module
+---------------------------------------
+
+.. automodule:: tests.regex_tests.repo_name_test
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+tests.regex_tests.url_test module
+---------------------------------
+
+.. automodule:: tests.regex_tests.url_test
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+tests.regex_tests.username_test module
+--------------------------------------
+
+.. automodule:: tests.regex_tests.username_test
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+
+Module contents
+---------------
+
+.. automodule:: tests.regex_tests
+    :members:
+    :undoc-members:
+    :show-inheritance:
