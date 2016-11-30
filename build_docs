@@ -21,41 +21,76 @@ import os
 import subprocess
 import argparse
 import shutil
+import multiprocessing
+
+# package requirements:
+# git
+# libtool
+# dnf
+# python3
+# python3-sphinx
+# python3-nose-testconfig
+# python3-lxml
+# python3-dogtail
 
 ANACONDA_DIR = "anaconda"
+PYKICKSTART_DIR = "pykickstart"
+BLIVET_DIR = "blivet"
+
 ANACONDA_REPO = "https://github.com/rhinstaller/anaconda"
+PYKICKSTART_REPO = "https://github.com/rhinstaller/pykickstart"
+BLIVET_REPO = "https://github.com/rhinstaller/blivet"
+
 ANACONDA_BRANCH = "master"
+PYKICKSTART_BRANCH = "pykickstart-2"
+BLIVET_BRANCH = "2.1-devel"
 
 DOCS_DIR = "docs"
 
-def init_repo(repo_folder, repo_url, branch_name):
+def init_repo(repo_folder, repo_url, branch_name=None):
     os.makedirs(repo_folder)
-    command = "git clone --depth 1 --branch %s %s %s" % (branch_name, repo_url, repo_folder)
+    if branch_name:
+        command = "git clone --depth 1 --branch %s %s %s" % (branch_name, repo_url, repo_folder)
+    else:
+        command = "git clone --depth 1 %s %s" % (repo_url, repo_folder)
+
     subprocess.call(command, shell=True)
 
-def update_repo(repo_folder):
+def update_repo(repo_folder, repo_url, branch=None):
+    print("Updating the %s source code repository." % repo_folder)
+    # make sure the repo clone exists
+    if not os.path.exists(repo_folder):
+        print("Initial %s source code repository initialization." % repo_folder)
+        init_repo(repo_folder, repo_url, branch)
+    # update the repo
     subprocess.call("git pull", shell=True, cwd=repo_folder)
-
-def update_anaconda():
-    print("Updating the Anaconda source code repository.")
-    # make sure the Anaconda repo clone exists
-    if not os.path.exists(ANACONDA_DIR):
-        print("Initial Anaconda source code repository initialization.")
-        init_repo(ANACONDA_DIR, ANACONDA_REPO, ANACONDA_BRANCH)
-    # update the Anaconda repo
-    update_repo(ANACONDA_DIR)
 
 def clean_anaconda():
     print("Cleaning the Anaconda source code repository.")
     subprocess.call("git reset --hard HEAD", shell=True, cwd=ANACONDA_DIR)
 
-def build_docs():
+def install_outside_dependencies():
+    subprocess.call("dnf install git libtool python3-sphinx python3-nose-testconfig python3-lxml python3-dogtail", shell=True)
+
+def install_makefile_dependencies():
+    print("installing Anaconda build and runtime dependencies")
+    subprocess.call("make install-buildrequires", shell=True, cwd=ANACONDA_DIR)
+    subprocess.call("make install-requires", shell=True, cwd=ANACONDA_DIR)
+
+def build_docs(install_deps=False):
+    if install_deps:
+        install_outside_dependencies()
     print("Configuring Anaconda")
     # All glory to autotools!
     subprocess.call("./autogen.sh", shell=True, cwd=ANACONDA_DIR)
     subprocess.call("./configure", shell=True, cwd=ANACONDA_DIR)
+    if install_deps:
+        install_makefile_dependencies()
+    # we also need to build the Anaconda widgets
+    subprocess.call("make -j%d" % (multiprocessing.cpu_count() + 1), shell=True, cwd=ANACONDA_DIR)
     print("Generating the Anaconda documentation.")
-    subprocess.call("make html", shell=True, cwd=ANACONDA_DIR)
+    PYTHON_PATH = "../../blivet:../../pykickstart:../widgets:.."
+    subprocess.call("PYTHONPATH=%s make html html" % PYTHON_PATH, shell=True, cwd=os.path.join(ANACONDA_DIR, "docs"))
 
 def commit_docs_update():
     print("Creating a documentation update commit.")
@@ -74,13 +109,22 @@ if __name__ == "__main__":
                         help="Commit all current changes in the generated docs repository.")
     parser.add_argument("--push", action="store_true", default=False,
                         help="Push changes in the generated docs back to origin.")
+    parser.add_argument("--install-deps", action="store_true", default=False,
+                        help="Automatically install dependencies for docs generation.")
+
     args = parser.parse_args()
 
     # make sure the Anaconda source code is up-to-date
-    update_anaconda()
+    update_repo(ANACONDA_DIR, ANACONDA_REPO, ANACONDA_BRANCH)
+
+    # also update Pykickstart
+    update_repo(PYKICKSTART_DIR, PYKICKSTART_REPO, PYKICKSTART_BRANCH)
+
+    # and blivet
+    update_repo(BLIVET_DIR, BLIVET_REPO, BLIVET_BRANCH)
 
     # build the docs
-    build_docs()
+    build_docs(install_deps=args.install_deps)
 
     # update the contents of the docs folder
     print("Updating the documentation folder.")
