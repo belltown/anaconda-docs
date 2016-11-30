@@ -90,7 +90,7 @@ def build_docs(install_deps=False):
     subprocess.call("make -j%d" % (multiprocessing.cpu_count() + 1), shell=True, cwd=ANACONDA_DIR)
     print("Generating the Anaconda documentation.")
     PYTHON_PATH = "../../blivet:../../pykickstart:../widgets:.."
-    subprocess.call("PYTHONPATH=%s make html html" % PYTHON_PATH, shell=True, cwd=os.path.join(ANACONDA_DIR, "docs"))
+    subprocess.call("PYTHONPATH=%s make html" % PYTHON_PATH, shell=True, cwd=os.path.join(ANACONDA_DIR, "docs"))
 
 def commit_docs_update():
     print("Creating a documentation update commit.")
